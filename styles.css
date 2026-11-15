@@ -514,8 +514,11 @@ main { position: relative; }
   font-size: 1.4rem; line-height: 1; color: var(--text); transition: background 0.15s;
 }
 .cal-nav:hover:not(:disabled) { background: var(--fill-3); }
+.cal-nav, .carousel-btn { display: grid; place-items: center; }
+.cal-nav svg, .carousel-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+/* chevrons point "back" and "forward" in reading direction */
+[dir="rtl"] .cal-nav svg, [dir="rtl"] .carousel-btn svg { transform: scaleX(-1); }
 .cal-nav:disabled { opacity: 0.25; cursor: default; }
-[dir="rtl"] .cal-nav { transform: scaleX(-1); }
 .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
 .cal-wd { text-align: center; font-size: 0.72rem; color: var(--faint); padding: 4px 0; }
 .cal-day {
@@ -562,6 +565,35 @@ main { position: relative; }
 .fields { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .field { display: grid; gap: 8px; font-size: 0.82rem; letter-spacing: 0.06em; color: var(--muted); }
 .fields .full { grid-column: 1 / -1; }
+
+/* ---------- Gallery carousel ---------- */
+.carousel { position: relative; }
+.carousel-track {
+  display: flex; gap: 16px; overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  scrollbar-width: none; padding: 6px 2px 40px; margin: -6px -2px -40px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-track:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 4px; border-radius: 22px; }
+.carousel-track figure {
+  position: relative; flex: none; margin: 0; height: clamp(300px, 40vw, 460px);
+  scroll-snap-align: start; border-radius: 22px; overflow: hidden;
+  box-shadow: 0 14px 28px -18px rgba(0,0,0,0.55);
+}
+.carousel-track figure::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.14); pointer-events: none; }
+.carousel-track img { height: 100%; width: auto; max-width: none; transition: transform 0.9s cubic-bezier(.2,.8,.2,1); }
+.carousel-track figure:hover img { transform: scale(1.04); }
+.carousel-btn {
+  position: absolute; top: calc(50% - 20px); translate: 0 -50%; z-index: 2;
+  width: 48px; height: 48px; border: 0; border-radius: 50%; cursor: pointer;
+  display: grid; place-items: center; font-size: 1.6rem; line-height: 1; color: var(--text);
+  background: var(--menu-bg); -webkit-backdrop-filter: blur(18px) saturate(160%); backdrop-filter: blur(18px) saturate(160%);
+  box-shadow: var(--menu-shadow); transition: opacity 0.25s, transform 0.25s;
+}
+.carousel-btn:hover:not(:disabled) { transform: scale(1.06); }
+.carousel-btn:disabled { opacity: 0; pointer-events: none; }
+.carousel-btn.prev { inset-inline-start: -14px; }
+.carousel-btn.next { inset-inline-end: -14px; }
 
 /* ---------- Reviews ---------- */
 .reviews-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 28px; }
@@ -687,6 +719,11 @@ main { position: relative; }
   .nav-actions { gap: 6px; }
   .grid-4 { grid-template-columns: 1fr; }
   .form, .fields { grid-template-columns: 1fr; }
+  .carousel-track { gap: 10px; }
+  .carousel-track figure { height: 300px; border-radius: 16px; }
+  .carousel-btn { width: 40px; height: 40px; font-size: 1.35rem; }
+  .carousel-btn.prev { inset-inline-start: 6px; }
+  .carousel-btn.next { inset-inline-end: 6px; }
   .picked li.with-time { grid-template-columns: 1fr auto; }
   .picked li.with-time .time-field { grid-row: 2; grid-column: 1 / -1; }
   .card { padding: 28px 24px; }
@@ -704,6 +741,6 @@ main { position: relative; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  html { scroll-behavior: auto; }
+  html, .carousel-track { scroll-behavior: auto; }
   .js .reveal { opacity: 1; transform: none; }
 }

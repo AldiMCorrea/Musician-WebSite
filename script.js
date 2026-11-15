@@ -119,13 +119,31 @@ const I18N = {
     "dubai.title": "Live music across Dubai.",
     "dubai.lead": "From Downtown to the Marina — weddings, galas and private celebrations, wherever your day takes place.",
     "dubai.cta": "Book live music",
-    "media.about": "Close-up of a violin on a dark background",
-    "media.lessonIn": "Hands playing an upright piano",
+    "media.about": "Violin and bow resting on sheet music",
+    "media.lessonIn": "A child's hands on the piano keys",
     "media.lessonOn": "Sheet music on a digital piano",
     "media.wedding": "Violinist performing at a wedding",
     "media.memorial": "White candles and flowers at a ceremony",
-    "media.gala": "Grand piano on a lit stage",
-    "media.celebration": "Guests raising a champagne toast",
+    "media.gala": "Event stage with lights and flowers",
+    "media.celebration": "Elegant dinner tables among greenery",
+    "gallery.eyebrow": "Gallery",
+    "gallery.title": "Moments in music.",
+    "gallery.lead": "Lessons, rehearsals and performances — music in everyday life.",
+    "gallery.label": "Photo gallery",
+    "gallery.prev": "Previous photos",
+    "gallery.next": "Next photos",
+    "gallery.violin-stand": "Violinist reading sheet music on a stand",
+    "gallery.piano-lesson": "Girl learning the piano",
+    "gallery.violinist-stage": "Violinist performing on stage",
+    "gallery.violin-detail": "Close-up of a violin",
+    "gallery.piano-hands": "Hands playing an upright piano",
+    "gallery.violin-lesson": "Girl practising the violin",
+    "gallery.violin-wood": "Violin resting on a wooden piano",
+    "gallery.piano-first-notes": "Small hands playing their first notes",
+    "gallery.violinist-white": "Violinist in a white dress playing",
+    "gallery.violin-score": "Violin and bow on sheet music",
+    "gallery.violin-table": "Violin and sheet music on a table",
+    "gallery.piano-white": "Boy playing a white piano",
     "theme.toggle": "Switch light / dark mode",
 
     "book.eyebrow": "Book",
@@ -357,13 +375,31 @@ const I18N = {
     "dubai.title": "Música en vivo en todo Dubái.",
     "dubai.lead": "Del Downtown a la Marina — bodas, galas y celebraciones privadas, donde sea que tenga lugar tu día.",
     "dubai.cta": "Reservar música en vivo",
-    "media.about": "Primer plano de un violín sobre fondo oscuro",
-    "media.lessonIn": "Manos tocando un piano vertical",
+    "media.about": "Violín y arco sobre partituras",
+    "media.lessonIn": "Manos de una niña sobre el teclado del piano",
     "media.lessonOn": "Partitura sobre un piano digital",
     "media.wedding": "Violinista tocando en una boda",
     "media.memorial": "Velas blancas y flores en una ceremonia",
-    "media.gala": "Piano de cola en un escenario iluminado",
-    "media.celebration": "Invitados brindando con champán",
+    "media.gala": "Escenario de evento con luces y flores",
+    "media.celebration": "Mesas de cena elegantes entre vegetación",
+    "gallery.eyebrow": "Galería",
+    "gallery.title": "Momentos de música.",
+    "gallery.lead": "Clases, ensayos y actuaciones — la música en el día a día.",
+    "gallery.label": "Galería de fotos",
+    "gallery.prev": "Fotos anteriores",
+    "gallery.next": "Más fotos",
+    "gallery.violin-stand": "Violinista leyendo la partitura en el atril",
+    "gallery.piano-lesson": "Niña aprendiendo piano",
+    "gallery.violinist-stage": "Violinista tocando en el escenario",
+    "gallery.violin-detail": "Primer plano de un violín",
+    "gallery.piano-hands": "Manos tocando un piano vertical",
+    "gallery.violin-lesson": "Niña practicando violín",
+    "gallery.violin-wood": "Violín apoyado sobre un piano de madera",
+    "gallery.piano-first-notes": "Manos pequeñas tocando sus primeras notas",
+    "gallery.violinist-white": "Violinista de vestido blanco tocando",
+    "gallery.violin-score": "Violín y arco sobre partituras",
+    "gallery.violin-table": "Violín y partituras sobre una mesa",
+    "gallery.piano-white": "Niño tocando un piano blanco",
     "theme.toggle": "Cambiar a modo claro / oscuro",
 
     "book.eyebrow": "Reservas",
@@ -595,13 +631,31 @@ const I18N = {
     "dubai.title": "موسيقى حيّة في كل أنحاء دبي.",
     "dubai.lead": "من وسط المدينة إلى المارينا — حفلات زفاف وحفلات رسمية واحتفالات خاصة، أينما كانت مناسبتك.",
     "dubai.cta": "احجز موسيقى حيّة",
-    "media.about": "لقطة قريبة لكمان على خلفية داكنة",
-    "media.lessonIn": "يدان تعزفان على البيانو",
+    "media.about": "كمان وقوس على النوتات الموسيقية",
+    "media.lessonIn": "يدا طفلة على مفاتيح البيانو",
     "media.lessonOn": "نوتة موسيقية على بيانو رقمي",
     "media.wedding": "عازف كمان في حفل زفاف",
     "media.memorial": "شموع بيضاء وزهور في مراسم",
-    "media.gala": "بيانو كبير على مسرح مضاء",
-    "media.celebration": "ضيوف يرفعون كؤوس النخب",
+    "media.gala": "منصة مناسبة بالأضواء والزهور",
+    "media.celebration": "طاولات عشاء أنيقة وسط الخضرة",
+    "gallery.eyebrow": "معرض الصور",
+    "gallery.title": "لحظات موسيقية.",
+    "gallery.lead": "دروس وتدريبات وعروض — الموسيقى في الحياة اليومية.",
+    "gallery.label": "معرض الصور",
+    "gallery.prev": "الصور السابقة",
+    "gallery.next": "الصور التالية",
+    "gallery.violin-stand": "عازف كمان يقرأ النوتة على الحامل",
+    "gallery.piano-lesson": "طفلة تتعلّم البيانو",
+    "gallery.violinist-stage": "عازفة كمان على المسرح",
+    "gallery.violin-detail": "لقطة قريبة لكمان",
+    "gallery.piano-hands": "يدان تعزفان على بيانو عمودي",
+    "gallery.violin-lesson": "طفلة تتدرّب على الكمان",
+    "gallery.violin-wood": "كمان على بيانو خشبي",
+    "gallery.piano-first-notes": "يدان صغيرتان تعزفان أولى النغمات",
+    "gallery.violinist-white": "عازفة كمان بفستان أبيض",
+    "gallery.violin-score": "كمان وقوس على النوتات",
+    "gallery.violin-table": "كمان ونوتات موسيقية على طاولة",
+    "gallery.piano-white": "طفل يعزف على بيانو أبيض",
     "theme.toggle": "التبديل بين الوضع الفاتح والداكن",
 
     "book.eyebrow": "الحجز",
@@ -945,7 +999,7 @@ function makeCalendar(el, opts) {
     b.type = "button";
     b.className = "cal-nav";
     b.setAttribute("aria-label", t(dir < 0 ? "book.prev" : "book.next"));
-    b.textContent = dir < 0 ? "‹" : "›";
+    b.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${dir < 0 ? "M15 6l-6 6 6 6" : "M9 6l6 6-6 6"}"/></svg>`;
     b.addEventListener("click", () => {
       view = new Date(view.getFullYear(), view.getMonth() + dir, 1);
       render();
@@ -1346,6 +1400,29 @@ document.addEventListener("langchange", () => {
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();
+
+// ---- Gallery carousel: swipe / scroll natively, arrows page through ----
+document.querySelectorAll(".carousel").forEach((carousel) => {
+  const track = carousel.querySelector(".carousel-track");
+  const buttons = carousel.querySelectorAll(".carousel-btn");
+  const update = () => {
+    const pos = Math.abs(track.scrollLeft);           // RTL scrolls into negative values
+    const max = track.scrollWidth - track.clientWidth;
+    buttons[0].disabled = pos <= 2;
+    buttons[1].disabled = pos >= max - 2;
+  };
+  buttons.forEach((b) =>
+    b.addEventListener("click", () => {
+      const rtl = getComputedStyle(track).direction === "rtl";
+      track.scrollBy({ left: Number(b.dataset.dir) * track.clientWidth * 0.8 * (rtl ? -1 : 1), behavior: calmMotion ? "auto" : "smooth" });
+    })
+  );
+  track.addEventListener("scroll", update, { passive: true });
+  track.addEventListener("scrollend", update);
+  track.querySelectorAll("img").forEach((img) => img.addEventListener("load", update));
+  window.addEventListener("resize", update);
+  update();
+});
 
 // ---- Reviews (stored in a Google Sheet, published only once approved) ----
 const reviewTabs = [...document.querySelectorAll('#reviews [role="tab"]')];
