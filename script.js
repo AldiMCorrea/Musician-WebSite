@@ -2,11 +2,11 @@
    Sabrina Von Arx — site behaviour & translations (EN / ES / AR)
    ========================================================== */
 
-// ---- Contact details: replace with the real ones ----
+// ---- Contact details ----
 const CONFIG = {
-  whatsapp: "971500000000",               // international format, digits only
+  whatsapp: "971581702195",               // +971 58 170 2195 — international format, digits only
   email: "sabrinadbenedicto@gmail.com",
-  instagram: "https://instagram.com/",
+  instagram: "https://www.instagram.com/sabrinavonarx.violin/",
   // Google Apps Script web-app URL for reviews (see reviews-backend/README.md).
   // Empty = reviews are sent by email instead and none are listed.
   reviewsEndpoint: "",
@@ -33,7 +33,7 @@ const SCHEDULE = {
 const I18N = {
   en: {
     "meta.title": "Sabrina Von Arx · Piano & Violin · Dubai",
-    "meta.description": "Piano lessons in person and online, and live piano & violin music for weddings, memorials and events in Dubai.",
+    "meta.description": "Piano and violin lessons in person and online, and live piano & violin music for weddings, memorials and events in Dubai.",
     "nav.about": "About",
     "nav.lessons": "Lessons",
     "nav.events": "Events",
@@ -42,7 +42,7 @@ const I18N = {
 
     "hero.eyebrow": "Piano & Violin · Dubai",
     "hero.title": "Music for the moments that matter.",
-    "hero.lead": "Piano lessons in person and online, and live piano & violin performances for weddings, memorials and private events across the UAE.",
+    "hero.lead": "Piano and violin lessons in person and online, and live piano & violin performances for weddings, memorials and private events across the UAE.",
     "hero.cta1": "Book a lesson",
     "hero.cta2": "Plan your event",
     "anim.listen": "Listen",
@@ -52,15 +52,15 @@ const I18N = {
     "about.p1": "A pianist and violinist based in Dubai, Sabrina brings warmth and precision to every lesson and every performance.",
     "about.p2": "Whether you are sitting at a piano for the first time or choosing the music for the most important day of your life, she listens first — and then shapes the music around you.",
     "about.s1a": "In person · Online",
-    "about.s1b": "Piano lessons",
+    "about.s1b": "Piano & violin lessons",
     "about.s2a": "Piano · Violin · Duo",
     "about.s2b": "Live performances",
     "about.s3a": "Dubai & UAE",
     "about.s3b": "Based in Dubai",
 
-    "lessons.eyebrow": "Piano lessons",
+    "lessons.eyebrow": "Piano & violin lessons",
     "lessons.title": "Learn at your own pace.",
-    "lessons.lead": "Personalised one-to-one lessons for children and adults, from first notes to advanced repertoire.",
+    "lessons.lead": "Personalised one-to-one piano and violin lessons for children and adults, from first notes to advanced repertoire.",
     "lessons.in.title": "In person",
     "lessons.in.text": "Lessons in Dubai at the studio or in your home, with focused, personal attention.",
     "lessons.in.l1": "Children (5+) and adults",
@@ -289,7 +289,7 @@ const I18N = {
 
   es: {
     "meta.title": "Sabrina Von Arx · Piano y Violín · Dubái",
-    "meta.description": "Clases de piano presenciales y online, y música en vivo de piano y violín para bodas, memoriales y eventos en Dubái.",
+    "meta.description": "Clases de piano y violín presenciales y online, y música en vivo de piano y violín para bodas, memoriales y eventos en Dubái.",
     "nav.about": "Sobre mí",
     "nav.lessons": "Clases",
     "nav.events": "Eventos",
@@ -298,7 +298,7 @@ const I18N = {
 
     "hero.eyebrow": "Piano y Violín · Dubái",
     "hero.title": "Música para los momentos que importan.",
-    "hero.lead": "Clases de piano presenciales y online, y actuaciones en vivo de piano y violín para bodas, memoriales y eventos privados en todos los Emiratos.",
+    "hero.lead": "Clases de piano y violín presenciales y online, y actuaciones en vivo de piano y violín para bodas, memoriales y eventos privados en todos los Emiratos.",
     "hero.cta1": "Reservar una clase",
     "hero.cta2": "Planear tu evento",
     "anim.listen": "Escuchar",
@@ -308,15 +308,15 @@ const I18N = {
     "about.p1": "Pianista y violinista con base en Dubái, Sabrina aporta calidez y precisión a cada clase y a cada actuación.",
     "about.p2": "Ya sea que te sientes al piano por primera vez o que estés eligiendo la música del día más importante de tu vida, ella escucha primero — y luego da forma a la música a tu alrededor.",
     "about.s1a": "Presencial · Online",
-    "about.s1b": "Clases de piano",
+    "about.s1b": "Clases de piano y violín",
     "about.s2a": "Piano · Violín · Dúo",
     "about.s2b": "Actuaciones en vivo",
     "about.s3a": "Dubái y EAU",
     "about.s3b": "Con base en Dubái",
 
-    "lessons.eyebrow": "Clases de piano",
+    "lessons.eyebrow": "Clases de piano y violín",
     "lessons.title": "Aprende a tu propio ritmo.",
-    "lessons.lead": "Clases individuales y personalizadas para niños y adultos, desde las primeras notas hasta repertorio avanzado.",
+    "lessons.lead": "Clases individuales y personalizadas de piano y violín para niños y adultos, desde las primeras notas hasta repertorio avanzado.",
     "lessons.in.title": "Presenciales",
     "lessons.in.text": "Clases en Dubái, en el estudio o en tu casa, con atención personal y dedicada.",
     "lessons.in.l1": "Niños (desde 5 años) y adultos",
@@ -545,7 +545,7 @@ const I18N = {
 
   ar: {
     "meta.title": "سابرينا فون آركس · بيانو وكمان · دبي",
-    "meta.description": "دروس بيانو حضورية وعبر الإنترنت، وموسيقى حيّة بالبيانو والكمان لحفلات الزفاف ومراسم التأبين والمناسبات في دبي.",
+    "meta.description": "دروس بيانو وكمان حضورية وعبر الإنترنت، وموسيقى حيّة بالبيانو والكمان لحفلات الزفاف ومراسم التأبين والمناسبات في دبي.",
     "nav.about": "نبذة",
     "nav.lessons": "الدروس",
     "nav.events": "المناسبات",
@@ -554,7 +554,7 @@ const I18N = {
 
     "hero.eyebrow": "بيانو وكمان · دبي",
     "hero.title": "موسيقى للّحظات التي تهمّك.",
-    "hero.lead": "دروس بيانو حضورية وعبر الإنترنت، وعروض حيّة بالبيانو والكمان لحفلات الزفاف ومراسم التأبين والمناسبات الخاصة في جميع أنحاء الإمارات.",
+    "hero.lead": "دروس بيانو وكمان حضورية وعبر الإنترنت، وعروض حيّة بالبيانو والكمان لحفلات الزفاف ومراسم التأبين والمناسبات الخاصة في جميع أنحاء الإمارات.",
     "hero.cta1": "احجز درساً",
     "hero.cta2": "خطّط لمناسبتك",
     "anim.listen": "استمع",
@@ -564,15 +564,15 @@ const I18N = {
     "about.p1": "عازفة بيانو وكمان مقيمة في دبي، تضفي سابرينا الدفء والدقّة على كل درس وكل عرض.",
     "about.p2": "سواء كنت تجلس أمام البيانو لأول مرة أو تختار موسيقى أهم يوم في حياتك، فهي تُصغي أولاً — ثم تصوغ الموسيقى من حولك.",
     "about.s1a": "حضورياً · عبر الإنترنت",
-    "about.s1b": "دروس البيانو",
+    "about.s1b": "دروس البيانو والكمان",
     "about.s2a": "بيانو · كمان · ثنائي",
     "about.s2b": "عروض حيّة",
     "about.s3a": "دبي والإمارات",
     "about.s3b": "مقيمة في دبي",
 
-    "lessons.eyebrow": "دروس البيانو",
+    "lessons.eyebrow": "دروس البيانو والكمان",
     "lessons.title": "تعلّم بالوتيرة التي تناسبك.",
-    "lessons.lead": "دروس فردية مصمّمة خصيصاً للأطفال والكبار، من النوتات الأولى إلى المقطوعات المتقدّمة.",
+    "lessons.lead": "دروس فردية مصمّمة خصيصاً في البيانو والكمان للأطفال والكبار، من النوتات الأولى إلى المقطوعات المتقدّمة.",
     "lessons.in.title": "حضورياً",
     "lessons.in.text": "دروس في دبي في الاستوديو أو في منزلك، مع اهتمام شخصي كامل.",
     "lessons.in.l1": "الأطفال (من 5 سنوات) والكبار",
