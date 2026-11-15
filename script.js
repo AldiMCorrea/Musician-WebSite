@@ -12,6 +12,24 @@ const CONFIG = {
   reviewsEndpoint: "",
 };
 
+// ---- Lesson availability, in Dubai time. Edit to match Sabrina's real schedule ----
+const SCHEDULE = {
+  // Start times offered on each weekday (0 = Sunday … 6 = Saturday). [] = no lessons that day.
+  lessons: {
+    0: [],
+    1: ["15:00", "16:00", "17:00", "18:00", "19:00"],
+    2: ["15:00", "16:00", "17:00", "18:00", "19:00"],
+    3: ["15:00", "16:00", "17:00", "18:00", "19:00"],
+    4: ["15:00", "16:00", "17:00", "18:00", "19:00"],
+    5: ["15:00", "16:00", "17:00", "18:00", "19:00"],
+    6: ["10:00", "11:00", "12:00", "13:00"],
+  },
+  blocked: [],              // days off, e.g. "2026-12-25"
+  minNoticeDays: 1,         // earliest lesson: tomorrow
+  lessonHorizonDays: 120,   // how far ahead lessons can be booked
+  eventHorizonDays: 730,    // how far ahead events can be requested
+};
+
 const I18N = {
   en: {
     "meta.title": "Sabrina Von Arx · Piano & Violin · Dubai",
@@ -86,27 +104,14 @@ const I18N = {
     "events.s3.d": "Early arrival, full setup and music without worries.",
     "events.cta": "Check availability",
 
-    "contact.eyebrow": "Contact",
-    "contact.title": "Let's make music together.",
-    "contact.lead": "Tell us what you have in mind and we'll get back to you soon.",
     "form.name": "Name",
-    "form.service": "Service",
-    "form.date": "Date (optional)",
     "form.message": "Message",
     "form.placeholder": "Tell us a little more…",
-    "form.o1": "Piano lessons — in person",
-    "form.o2": "Piano lessons — online",
-    "form.o3": "Wedding",
-    "form.o4": "Memorial",
-    "form.o5": "Corporate event",
-    "form.o6": "Other",
     "form.submit": "Send via WhatsApp",
     "form.email": "Send by email",
     "form.error": "Please add your name.",
     "msg.greeting": "Hello Sabrina,",
     "msg.name": "Name",
-    "msg.service": "Service",
-    "msg.date": "Date",
     "msg.subject": "Enquiry",
 
     "footer.place": "Dubai, United Arab Emirates",
@@ -122,6 +127,103 @@ const I18N = {
     "media.gala": "Grand piano on a lit stage",
     "media.celebration": "Guests raising a champagne toast",
     "theme.toggle": "Switch light / dark mode",
+
+    "book.eyebrow": "Book",
+    "book.title": "Book your lessons or your event.",
+    "book.lead": "Choose what you need and send your request — Sabrina will confirm availability and the next steps personally.",
+    "book.tabs": "Booking type",
+    "book.tab.lessons": "Lessons",
+    "book.tab.event": "Event",
+    "book.tab.other": "Other enquiry",
+    "book.l.instrument": "Instrument",
+    "book.piano": "Piano",
+    "book.violin": "Violin",
+    "book.l.pack": "Package",
+    "book.p1.t": "Trial lesson",
+    "book.p1.d": "One lesson to meet and set goals",
+    "book.p4.t": "4 lessons",
+    "book.p4.d": "One month, once a week",
+    "book.p8.t": "8 lessons",
+    "book.p8.d": "Two months, or twice a week",
+    "book.p12.t": "12 lessons",
+    "book.p12.d": "A full term",
+    "book.l.packNote": "Sabrina will confirm prices with your booking.",
+    "book.l.format": "Format",
+    "book.inperson": "In person",
+    "book.online": "Online",
+    "book.l.duration": "Lesson length",
+    "book.min45": "45 min",
+    "book.min60": "60 min",
+    "book.l.where": "Where",
+    "book.studio": "At the studio",
+    "book.home": "At my home",
+    "book.l.area": "Area in Dubai (optional)",
+    "book.l.areaPh": "e.g. JLT, Downtown, Arabian Ranches",
+    "book.l.when": "Days & times",
+    "book.l.count": "{n} of {total} lessons chosen",
+    "book.l.countTrial": "Choose the day and time for your trial lesson.",
+    "book.l.pickDay": "Tap the days you'd like on the calendar.",
+    "book.l.tapHint": "Tap a chosen day again to remove it.",
+    "book.l.time": "Time",
+    "book.err.lessonTime": "Choose a time for each lesson.",
+    "book.l.weekly": "Same day & time every week",
+    "book.l.full": "You've chosen all your lessons — remove one to pick another day.",
+    "book.tz": "Times are in Dubai time (GST, UTC+4).",
+    "book.l.student": "About the student",
+    "book.l.who": "Lessons for",
+    "book.whoMe": "Me",
+    "book.whoChild": "My child",
+    "book.l.age": "Age (optional)",
+    "book.l.level": "Level",
+    "book.lv1": "Beginner",
+    "book.lv2": "Some experience",
+    "book.lv3": "Advanced",
+    "book.l.comments": "Comments (optional)",
+    "book.l.commentsPh": "Goals, favourite music, anything Sabrina should know…",
+    "book.e.type": "Type of event",
+    "book.e.other": "Other",
+    "book.e.music": "Music (optional)",
+    "book.e.unsure": "Not sure yet",
+    "book.e.date": "Date & time",
+    "book.e.one": "One day",
+    "book.e.many": "Several days",
+    "book.e.pickHint": "Pick the date on the calendar, then the start time.",
+    "book.e.pickHintMany": "Pick each day on the calendar and set its start time.",
+    "book.e.start": "Start time",
+    "book.e.more": "Location & details",
+    "book.e.location": "Location (optional)",
+    "book.e.locationPh": "Venue or area",
+    "book.e.details": "Details (optional)",
+    "book.e.detailsPh": "Guests, moments with music, special songs…",
+    "book.you": "Your details",
+    "book.note": "Nothing is charged now — Sabrina will reply to confirm.",
+    "book.remove": "Remove",
+    "book.prev": "Previous month",
+    "book.next": "Next month",
+    "book.err.mode": "Choose in person or online.",
+    "book.err.lessons": "Pick at least one day and time on the calendar.",
+    "book.err.type": "Choose the type of event.",
+    "book.err.date": "Pick the date of your event on the calendar.",
+    "book.err.time": "Add a start time for each day.",
+    "book.err.message": "Please write your message.",
+    "msg.lessonsIntro": "I'd like to book lessons.",
+    "msg.eventIntro": "I'd like to ask about live music for an event.",
+    "msg.instrument": "Instrument",
+    "msg.pack": "Package",
+    "msg.format": "Format",
+    "msg.duration": "Length",
+    "msg.lessons": "Lessons",
+    "msg.rest": "The remaining lessons are still to be arranged.",
+    "msg.student": "Student",
+    "msg.level": "Level",
+    "msg.age": "age {n}",
+    "msg.event": "Event",
+    "msg.music": "Music",
+    "msg.dates": "Dates",
+    "msg.location": "Location",
+    "msg.tz": "(Dubai time)",
+    "msg.subjectLessons": "Lesson booking",
+    "msg.subjectEvent": "Event enquiry",
 
     "nav.reviews": "Reviews",
     "reviews.eyebrow": "Reviews",
@@ -144,8 +246,16 @@ const I18N = {
     "reviews.form.name": "Name",
     "reviews.form.category": "Your review is about",
     "reviews.form.rating": "Rating",
-    "reviews.form.detail": "Lesson or event (optional)",
-    "reviews.form.detailPh": "e.g. Online lessons, wedding in Dubai Marina",
+    "reviews.form.detail": "Details (optional)",
+    "reviews.form.detailPh": "e.g. Dubai Marina, June 2026 · 2 years of lessons",
+    "reviews.g.events": "Events",
+    "reviews.c.piano": "Piano lessons",
+    "reviews.c.violin": "Violin lessons",
+    "reviews.c.wedding": "Wedding",
+    "reviews.c.memorial": "Memorial",
+    "reviews.c.corporate": "Corporate & gala",
+    "reviews.c.private": "Private celebration",
+    "reviews.form.pick": "Please choose what your review is about.",
     "reviews.form.text": "Your review",
     "reviews.form.textPh": "What was it like?",
     "reviews.form.note": "Reviews appear on the site once they have been approved.",
@@ -232,27 +342,14 @@ const I18N = {
     "events.s3.d": "Llegada anticipada, montaje completo y música sin preocupaciones.",
     "events.cta": "Consultar disponibilidad",
 
-    "contact.eyebrow": "Contacto",
-    "contact.title": "Hagamos música juntos.",
-    "contact.lead": "Cuéntanos lo que tienes en mente y te responderemos pronto.",
     "form.name": "Nombre",
-    "form.service": "Servicio",
-    "form.date": "Fecha (opcional)",
     "form.message": "Mensaje",
     "form.placeholder": "Cuéntanos un poco más…",
-    "form.o1": "Clases de piano — presenciales",
-    "form.o2": "Clases de piano — online",
-    "form.o3": "Boda",
-    "form.o4": "Memorial",
-    "form.o5": "Evento corporativo",
-    "form.o6": "Otro",
     "form.submit": "Enviar por WhatsApp",
     "form.email": "Enviar por email",
     "form.error": "Por favor, escribe tu nombre.",
     "msg.greeting": "Hola Sabrina,",
     "msg.name": "Nombre",
-    "msg.service": "Servicio",
-    "msg.date": "Fecha",
     "msg.subject": "Consulta",
 
     "footer.place": "Dubái, Emiratos Árabes Unidos",
@@ -268,6 +365,103 @@ const I18N = {
     "media.gala": "Piano de cola en un escenario iluminado",
     "media.celebration": "Invitados brindando con champán",
     "theme.toggle": "Cambiar a modo claro / oscuro",
+
+    "book.eyebrow": "Reservas",
+    "book.title": "Reserva tus clases o tu evento.",
+    "book.lead": "Elige lo que necesitas y envía tu solicitud — Sabrina te confirmará la disponibilidad y los próximos pasos personalmente.",
+    "book.tabs": "Tipo de reserva",
+    "book.tab.lessons": "Clases",
+    "book.tab.event": "Evento",
+    "book.tab.other": "Otra consulta",
+    "book.l.instrument": "Instrumento",
+    "book.piano": "Piano",
+    "book.violin": "Violín",
+    "book.l.pack": "Paquete",
+    "book.p1.t": "Clase de prueba",
+    "book.p1.d": "Una clase para conocernos y fijar objetivos",
+    "book.p4.t": "4 clases",
+    "book.p4.d": "Un mes, una vez por semana",
+    "book.p8.t": "8 clases",
+    "book.p8.d": "Dos meses, o dos veces por semana",
+    "book.p12.t": "12 clases",
+    "book.p12.d": "Un trimestre completo",
+    "book.l.packNote": "Sabrina te confirmará los precios con tu reserva.",
+    "book.l.format": "Modalidad",
+    "book.inperson": "Presencial",
+    "book.online": "Online",
+    "book.l.duration": "Duración de la clase",
+    "book.min45": "45 min",
+    "book.min60": "60 min",
+    "book.l.where": "Dónde",
+    "book.studio": "En el estudio",
+    "book.home": "En mi casa",
+    "book.l.area": "Zona en Dubái (opcional)",
+    "book.l.areaPh": "Ej.: JLT, Downtown, Arabian Ranches",
+    "book.l.when": "Días y horarios",
+    "book.l.count": "{n} de {total} clases elegidas",
+    "book.l.countTrial": "Elige el día y el horario de tu clase de prueba.",
+    "book.l.pickDay": "Toca en el calendario los días que quieras.",
+    "book.l.tapHint": "Toca de nuevo un día elegido para quitarlo.",
+    "book.l.time": "Horario",
+    "book.err.lessonTime": "Elige un horario para cada clase.",
+    "book.l.weekly": "Mismo día y hora cada semana",
+    "book.l.full": "Ya elegiste todas tus clases — quita una para elegir otro día.",
+    "book.tz": "Los horarios están en hora de Dubái (GST, UTC+4).",
+    "book.l.student": "Sobre el alumno",
+    "book.l.who": "Las clases son para",
+    "book.whoMe": "Mí",
+    "book.whoChild": "Mi hijo/a",
+    "book.l.age": "Edad (opcional)",
+    "book.l.level": "Nivel",
+    "book.lv1": "Principiante",
+    "book.lv2": "Con algo de experiencia",
+    "book.lv3": "Avanzado",
+    "book.l.comments": "Comentarios (opcional)",
+    "book.l.commentsPh": "Objetivos, música favorita, algo que Sabrina deba saber…",
+    "book.e.type": "Tipo de evento",
+    "book.e.other": "Otro",
+    "book.e.music": "Música (opcional)",
+    "book.e.unsure": "Aún no lo sé",
+    "book.e.date": "Fecha y hora",
+    "book.e.one": "Un día",
+    "book.e.many": "Varios días",
+    "book.e.pickHint": "Elige la fecha en el calendario y después la hora de inicio.",
+    "book.e.pickHintMany": "Elige cada día en el calendario y su hora de inicio.",
+    "book.e.start": "Hora de inicio",
+    "book.e.more": "Ubicación y detalles",
+    "book.e.location": "Ubicación (opcional)",
+    "book.e.locationPh": "Lugar o zona",
+    "book.e.details": "Detalles (opcional)",
+    "book.e.detailsPh": "Invitados, momentos con música, canciones especiales…",
+    "book.you": "Tus datos",
+    "book.note": "No se cobra nada ahora — Sabrina te responderá para confirmar.",
+    "book.remove": "Quitar",
+    "book.prev": "Mes anterior",
+    "book.next": "Mes siguiente",
+    "book.err.mode": "Elige presencial u online.",
+    "book.err.lessons": "Elige al menos un día y horario en el calendario.",
+    "book.err.type": "Elige el tipo de evento.",
+    "book.err.date": "Elige la fecha de tu evento en el calendario.",
+    "book.err.time": "Indica la hora de inicio de cada día.",
+    "book.err.message": "Por favor, escribe tu mensaje.",
+    "msg.lessonsIntro": "Quiero reservar clases.",
+    "msg.eventIntro": "Quiero consultar por música en vivo para un evento.",
+    "msg.instrument": "Instrumento",
+    "msg.pack": "Paquete",
+    "msg.format": "Modalidad",
+    "msg.duration": "Duración",
+    "msg.lessons": "Clases",
+    "msg.rest": "El resto de las clases, a coordinar.",
+    "msg.student": "Alumno",
+    "msg.level": "Nivel",
+    "msg.age": "{n} años",
+    "msg.event": "Evento",
+    "msg.music": "Música",
+    "msg.dates": "Fechas",
+    "msg.location": "Ubicación",
+    "msg.tz": "(hora de Dubái)",
+    "msg.subjectLessons": "Reserva de clases",
+    "msg.subjectEvent": "Consulta por evento",
 
     "nav.reviews": "Reseñas",
     "reviews.eyebrow": "Reseñas",
@@ -290,8 +484,16 @@ const I18N = {
     "reviews.form.name": "Nombre",
     "reviews.form.category": "Tu reseña es sobre",
     "reviews.form.rating": "Valoración",
-    "reviews.form.detail": "Clase o evento (opcional)",
-    "reviews.form.detailPh": "Ej.: clases online, boda en Dubai Marina",
+    "reviews.form.detail": "Detalles (opcional)",
+    "reviews.form.detailPh": "Ej.: Dubai Marina, junio 2026 · 2 años de clases",
+    "reviews.g.events": "Eventos",
+    "reviews.c.piano": "Clases de piano",
+    "reviews.c.violin": "Clases de violín",
+    "reviews.c.wedding": "Boda",
+    "reviews.c.memorial": "Memorial",
+    "reviews.c.corporate": "Corporativo y gala",
+    "reviews.c.private": "Celebración privada",
+    "reviews.form.pick": "Elige sobre qué es tu reseña.",
     "reviews.form.text": "Tu reseña",
     "reviews.form.textPh": "¿Cómo fue tu experiencia?",
     "reviews.form.note": "Las reseñas se publican en la web una vez aprobadas.",
@@ -378,27 +580,14 @@ const I18N = {
     "events.s3.d": "وصول مبكّر، تجهيز كامل، وموسيقى بلا أي قلق.",
     "events.cta": "تحقّق من التوفّر",
 
-    "contact.eyebrow": "تواصل",
-    "contact.title": "لنصنع الموسيقى معاً.",
-    "contact.lead": "أخبرنا بما تفكّر فيه وسنعود إليك قريباً.",
     "form.name": "الاسم",
-    "form.service": "الخدمة",
-    "form.date": "التاريخ (اختياري)",
     "form.message": "الرسالة",
     "form.placeholder": "أخبرنا المزيد…",
-    "form.o1": "دروس بيانو — حضورياً",
-    "form.o2": "دروس بيانو — عبر الإنترنت",
-    "form.o3": "حفل زفاف",
-    "form.o4": "مراسم تأبين",
-    "form.o5": "فعالية شركة",
-    "form.o6": "أخرى",
     "form.submit": "أرسل عبر واتساب",
     "form.email": "أرسل عبر البريد الإلكتروني",
     "form.error": "يرجى كتابة اسمك.",
     "msg.greeting": "مرحباً سابرينا،",
     "msg.name": "الاسم",
-    "msg.service": "الخدمة",
-    "msg.date": "التاريخ",
     "msg.subject": "استفسار",
 
     "footer.place": "دبي، الإمارات العربية المتحدة",
@@ -414,6 +603,103 @@ const I18N = {
     "media.gala": "بيانو كبير على مسرح مضاء",
     "media.celebration": "ضيوف يرفعون كؤوس النخب",
     "theme.toggle": "التبديل بين الوضع الفاتح والداكن",
+
+    "book.eyebrow": "الحجز",
+    "book.title": "احجز دروسك أو مناسبتك.",
+    "book.lead": "اختر ما تحتاجه وأرسل طلبك — ستؤكد سابرينا التوفّر والخطوات التالية بنفسها.",
+    "book.tabs": "نوع الحجز",
+    "book.tab.lessons": "الدروس",
+    "book.tab.event": "مناسبة",
+    "book.tab.other": "استفسار آخر",
+    "book.l.instrument": "الآلة",
+    "book.piano": "البيانو",
+    "book.violin": "الكمان",
+    "book.l.pack": "الباقة",
+    "book.p1.t": "درس تجريبي",
+    "book.p1.d": "درس واحد للتعارف وتحديد الأهداف",
+    "book.p4.t": "4 دروس",
+    "book.p4.d": "شهر واحد، مرة في الأسبوع",
+    "book.p8.t": "8 دروس",
+    "book.p8.d": "شهران، أو مرتين في الأسبوع",
+    "book.p12.t": "12 درساً",
+    "book.p12.d": "فصل دراسي كامل",
+    "book.l.packNote": "ستؤكد سابرينا الأسعار مع حجزك.",
+    "book.l.format": "طريقة الدرس",
+    "book.inperson": "حضورياً",
+    "book.online": "عبر الإنترنت",
+    "book.l.duration": "مدة الدرس",
+    "book.min45": "45 دقيقة",
+    "book.min60": "60 دقيقة",
+    "book.l.where": "المكان",
+    "book.studio": "في الاستوديو",
+    "book.home": "في منزلي",
+    "book.l.area": "المنطقة في دبي (اختياري)",
+    "book.l.areaPh": "مثال: JLT، وسط المدينة، المرابع العربية",
+    "book.l.when": "الأيام والمواعيد",
+    "book.l.count": "تم اختيار {n} من {total} دروس",
+    "book.l.countTrial": "اختر يوم ووقت درسك التجريبي.",
+    "book.l.pickDay": "اضغط على الأيام التي تريدها في التقويم.",
+    "book.l.tapHint": "اضغط على اليوم المختار مرة أخرى لإزالته.",
+    "book.l.time": "الوقت",
+    "book.err.lessonTime": "اختر وقتاً لكل درس.",
+    "book.l.weekly": "نفس اليوم والوقت كل أسبوع",
+    "book.l.full": "لقد اخترت جميع دروسك — احذف درساً لاختيار يوم آخر.",
+    "book.tz": "المواعيد بتوقيت دبي (GST، UTC+4).",
+    "book.l.student": "عن الطالب",
+    "book.l.who": "الدروس لـ",
+    "book.whoMe": "لي",
+    "book.whoChild": "طفلي",
+    "book.l.age": "العمر (اختياري)",
+    "book.l.level": "المستوى",
+    "book.lv1": "مبتدئ",
+    "book.lv2": "لديه بعض الخبرة",
+    "book.lv3": "متقدّم",
+    "book.l.comments": "ملاحظات (اختياري)",
+    "book.l.commentsPh": "أهدافك، موسيقاك المفضلة، أي شيء يجب أن تعرفه سابرينا…",
+    "book.e.type": "نوع المناسبة",
+    "book.e.other": "أخرى",
+    "book.e.music": "الموسيقى (اختياري)",
+    "book.e.unsure": "لم أقرر بعد",
+    "book.e.date": "التاريخ والوقت",
+    "book.e.one": "يوم واحد",
+    "book.e.many": "عدة أيام",
+    "book.e.pickHint": "اختر التاريخ من التقويم ثم وقت البدء.",
+    "book.e.pickHintMany": "اختر كل يوم من التقويم وحدّد وقت البدء.",
+    "book.e.start": "وقت البدء",
+    "book.e.more": "المكان والتفاصيل",
+    "book.e.location": "المكان (اختياري)",
+    "book.e.locationPh": "القاعة أو المنطقة",
+    "book.e.details": "تفاصيل (اختياري)",
+    "book.e.detailsPh": "عدد الضيوف، اللحظات الموسيقية، أغانٍ خاصة…",
+    "book.you": "بياناتك",
+    "book.note": "لن يتم تحصيل أي مبلغ الآن — ستردّ سابرينا للتأكيد.",
+    "book.remove": "إزالة",
+    "book.prev": "الشهر السابق",
+    "book.next": "الشهر التالي",
+    "book.err.mode": "اختر حضورياً أو عبر الإنترنت.",
+    "book.err.lessons": "اختر يوماً ووقتاً واحداً على الأقل من التقويم.",
+    "book.err.type": "اختر نوع المناسبة.",
+    "book.err.date": "اختر تاريخ مناسبتك من التقويم.",
+    "book.err.time": "حدّد وقت البدء لكل يوم.",
+    "book.err.message": "يرجى كتابة رسالتك.",
+    "msg.lessonsIntro": "أرغب في حجز دروس.",
+    "msg.eventIntro": "أرغب في الاستفسار عن موسيقى حيّة لمناسبة.",
+    "msg.instrument": "الآلة",
+    "msg.pack": "الباقة",
+    "msg.format": "طريقة الدرس",
+    "msg.duration": "المدة",
+    "msg.lessons": "الدروس",
+    "msg.rest": "باقي الدروس يتم تنسيقها لاحقاً.",
+    "msg.student": "الطالب",
+    "msg.level": "المستوى",
+    "msg.age": "العمر {n}",
+    "msg.event": "المناسبة",
+    "msg.music": "الموسيقى",
+    "msg.dates": "التواريخ",
+    "msg.location": "المكان",
+    "msg.tz": "(بتوقيت دبي)",
+    "msg.subjectLessons": "حجز دروس",
+    "msg.subjectEvent": "استفسار عن مناسبة",
 
     "nav.reviews": "الآراء",
     "reviews.eyebrow": "آراء العملاء",
@@ -436,8 +722,16 @@ const I18N = {
     "reviews.form.name": "الاسم",
     "reviews.form.category": "رأيك حول",
     "reviews.form.rating": "التقييم",
-    "reviews.form.detail": "الدرس أو المناسبة (اختياري)",
-    "reviews.form.detailPh": "مثال: دروس عبر الإنترنت، حفل زفاف في دبي مارينا",
+    "reviews.form.detail": "تفاصيل (اختياري)",
+    "reviews.form.detailPh": "مثال: دبي مارينا، يونيو 2026 · سنتان من الدروس",
+    "reviews.g.events": "المناسبات",
+    "reviews.c.piano": "دروس البيانو",
+    "reviews.c.violin": "دروس الكمان",
+    "reviews.c.wedding": "حفل زفاف",
+    "reviews.c.memorial": "مراسم تأبين",
+    "reviews.c.corporate": "فعالية شركة أو حفل رسمي",
+    "reviews.c.private": "احتفال خاص",
+    "reviews.form.pick": "يرجى اختيار موضوع رأيك.",
     "reviews.form.text": "رأيك",
     "reviews.form.textPh": "كيف كانت تجربتك؟",
     "reviews.form.note": "تُنشر الآراء على الموقع بعد الموافقة عليها.",
@@ -608,8 +902,8 @@ if (!calmMotion && !saveData) {
   lazyVideos.forEach((v) => videoWatch.observe(v));
 }
 
-// ---- Contact ----
-const form = document.getElementById("contact-form");
+// ---- Booking: lessons, events and other enquiries (sent via WhatsApp or email) ----
+const form = document.getElementById("book-form");
 const errorEl = document.getElementById("form-error");
 const fields = form.elements;
 
@@ -617,30 +911,418 @@ document.getElementById("wa-link").href = `https://wa.me/${CONFIG.whatsapp}`;
 document.getElementById("mail-link").href = `mailto:${CONFIG.email}`;
 document.getElementById("ig-link").href = CONFIG.instagram;
 
-// CTA buttons preselect the matching service
+// Dates are handled as local "YYYY-MM-DD" keys so time zones never shift a day
+const LOCALES = { en: "en-GB", es: "es-ES", ar: "ar-AE-u-nu-latn" };
+const loc = () => LOCALES[current] || "en-GB";
+const pad = (n) => String(n).padStart(2, "0");
+const toKey = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+const fromKey = (k) => { const [y, m, d] = k.split("-").map(Number); return new Date(y, m - 1, d); };
+const addDays = (d, n) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
+const startOfToday = () => { const n = new Date(); return new Date(n.getFullYear(), n.getMonth(), n.getDate()); };
+const byDate = (a, b) => a.date.localeCompare(b.date);
+
+function fmtDate(key, extra) {
+  const d = fromKey(key);
+  const opts = { weekday: "short", day: "numeric", month: "short", ...extra };
+  if (d.getFullYear() !== startOfToday().getFullYear()) opts.year = "numeric";
+  return new Intl.DateTimeFormat(loc(), opts).format(d);
+}
+function fmtTime(hm) {
+  const [h, m] = hm.split(":").map(Number);
+  return new Intl.DateTimeFormat(loc(), { hour: "numeric", minute: "2-digit" }).format(new Date(2000, 0, 1, h, m));
+}
+const checked = (name) => form.querySelector(`input[name="${name}"]:checked`);
+const chipText = (input) => input.closest("label").querySelector("span, strong").textContent;
+
+// Month calendar (Monday first). opts: isOpen(date), state(key) → {picked, active}, onPick(key), max()
+function makeCalendar(el, opts) {
+  let view = null;
+  let focusKey = null;
+  const monthStart = (d) => new Date(d.getFullYear(), d.getMonth(), 1);
+
+  function navButton(dir) {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "cal-nav";
+    b.setAttribute("aria-label", t(dir < 0 ? "book.prev" : "book.next"));
+    b.textContent = dir < 0 ? "‹" : "›";
+    b.addEventListener("click", () => {
+      view = new Date(view.getFullYear(), view.getMonth() + dir, 1);
+      render();
+    });
+    return b;
+  }
+
+  function render() {
+    const min = monthStart(startOfToday());
+    const max = monthStart(opts.max());
+    if (!view) view = min;
+    const head = document.createElement("div");
+    head.className = "cal-head";
+    const prev = navButton(-1);
+    const next = navButton(1);
+    prev.disabled = view <= min;
+    next.disabled = view >= max;
+    const title = document.createElement("strong");
+    const month = new Intl.DateTimeFormat(loc(), { month: "long", year: "numeric" }).format(view);
+    title.textContent = month.charAt(0).toLocaleUpperCase(loc()) + month.slice(1);
+    title.setAttribute("aria-live", "polite");
+    head.append(prev, title, next);
+
+    const grid = document.createElement("div");
+    grid.className = "cal-grid";
+    const wd = new Intl.DateTimeFormat(loc(), { weekday: "narrow" });
+    for (let i = 0; i < 7; i++) {
+      const s = document.createElement("span");
+      s.className = "cal-wd";
+      s.setAttribute("aria-hidden", "true");
+      s.textContent = wd.format(new Date(2024, 0, 1 + i)); // 1 Jan 2024 was a Monday
+      grid.append(s);
+    }
+    for (let i = 0; i < (view.getDay() + 6) % 7; i++) grid.append(document.createElement("span"));
+
+    const todayKey = toKey(startOfToday());
+    const days = new Date(view.getFullYear(), view.getMonth() + 1, 0).getDate();
+    for (let d = 1; d <= days; d++) {
+      const date = new Date(view.getFullYear(), view.getMonth(), d);
+      const key = toKey(date);
+      const st = opts.state(key);
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "cal-day";
+      b.dataset.key = key;
+      b.textContent = d;
+      b.disabled = !opts.isOpen(date);
+      b.setAttribute("aria-pressed", String(!!st.picked));
+      b.setAttribute("aria-label", fmtDate(key, { weekday: "long", month: "long", year: "numeric" }));
+      b.classList.toggle("picked", !!st.picked);
+      b.classList.toggle("active", !!st.active);
+      b.classList.toggle("today", key === todayKey);
+      b.addEventListener("click", () => {
+        focusKey = key;
+        opts.onPick(key);
+      });
+      grid.append(b);
+    }
+    el.replaceChildren(head, grid);
+    if (focusKey) {
+      el.querySelector(`[data-key="${focusKey}"]`)?.focus();
+      focusKey = null;
+    }
+  }
+  return { render, first: () => el.querySelector(".cal-day:not(:disabled)") };
+}
+
+function removeButton(label, onClick) {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "picked-remove";
+  b.setAttribute("aria-label", `${t("book.remove")} — ${label}`);
+  b.textContent = "×";
+  b.addEventListener("click", onClick);
+  return b;
+}
+
+// ---------- Lessons ----------
+// Tapping a day adds it (with the last time used, if offered that day); tapping it again removes it.
+const L = { picks: [], lastTime: "", full: false };
+const lCount = document.getElementById("l-count");
+const lHint = document.getElementById("l-hint");
+const lPicked = document.getElementById("l-picked");
+const lWeekly = document.getElementById("l-weekly");
+const packSize = () => Number(fields.pack.value) || 1;
+const lessonMax = () => addDays(startOfToday(), SCHEDULE.lessonHorizonDays);
+
+function lessonTimes(key) {
+  if (SCHEDULE.blocked.includes(key)) return [];
+  return SCHEDULE.lessons[fromKey(key).getDay()] || [];
+}
+function lessonOpen(date) {
+  return date >= addDays(startOfToday(), SCHEDULE.minNoticeDays) && date <= lessonMax() && lessonTimes(toKey(date)).length > 0;
+}
+
+const lCal = makeCalendar(document.getElementById("l-cal"), {
+  isOpen: lessonOpen,
+  max: lessonMax,
+  state: (key) => ({ picked: L.picks.some((p) => p.date === key) }),
+  onPick: toggleLessonDay,
+});
+
+function toggleLessonDay(key) {
+  L.full = false;
+  const existing = L.picks.find((p) => p.date === key);
+  if (existing) {
+    L.picks = L.picks.filter((p) => p !== existing);
+  } else if (packSize() === 1) {
+    L.picks = [{ date: key, time: defaultTime(key) }];   // trial: a new day replaces the old one
+  } else if (L.picks.length >= packSize()) {
+    L.full = true;
+  } else {
+    L.picks = [...L.picks, { date: key, time: defaultTime(key) }].sort(byDate);
+  }
+  errorEl.hidden = true;
+  renderLessons();
+}
+
+function defaultTime(key) {
+  return lessonTimes(key).includes(L.lastTime) ? L.lastTime : "";
+}
+
+// Fill the package with the same weekday & time, starting from the first chosen lesson
+function weeklySeries(start, time) {
+  const out = [];
+  for (let d = fromKey(start); out.length < packSize() && d <= lessonMax(); d = addDays(d, 7)) {
+    if (lessonOpen(d) && lessonTimes(toKey(d)).includes(time)) out.push({ date: toKey(d), time });
+  }
+  return out;
+}
+function applyWeekly() {
+  const first = L.picks.find((p) => p.time);
+  if (lWeekly.checked && first && packSize() > 1) L.picks = weeklySeries(first.date, first.time);
+}
+
+function renderLessons() {
+  const total = packSize();
+  lCount.classList.toggle("warn", L.full);
+  lCount.textContent = L.full
+    ? t("book.l.full")
+    : total === 1
+      ? t("book.l.countTrial")
+      : t("book.l.count").replace("{n}", L.picks.length).replace("{total}", total);
+  lWeekly.closest("label").hidden = total === 1;
+  lHint.textContent = t(L.picks.length ? "book.l.tapHint" : "book.l.pickDay");
+
+  lPicked.replaceChildren(
+    ...L.picks.map((p) => {
+      const li = document.createElement("li");
+      li.className = "with-time";
+      const day = document.createElement("span");
+      day.textContent = fmtDate(p.date);
+      const field = document.createElement("label");
+      field.className = "time-field";
+      const cap = document.createElement("span");
+      cap.textContent = t("book.l.time");
+      const select = document.createElement("select");
+      select.className = "glass-inset";
+      const blank = new Option("—", "");
+      blank.disabled = true;
+      select.append(blank, ...lessonTimes(p.date).map((time) => new Option(fmtTime(time), time)));
+      select.value = p.time;
+      select.addEventListener("change", () => {
+        p.time = select.value;
+        L.lastTime = select.value;
+        // fill in later lessons that have no time yet
+        L.picks.forEach((x) => { if (!x.time && lessonTimes(x.date).includes(p.time)) x.time = p.time; });
+        applyWeekly();
+        errorEl.hidden = true;
+        renderLessons();
+      });
+      field.append(cap, select);
+      li.append(day, field, removeButton(day.textContent, () => toggleLessonDay(p.date)));
+      return li;
+    })
+  );
+  lCal.render();
+}
+
+form.addEventListener("change", (e) => {
+  const n = e.target.name;
+  if (n === "pack") {
+    applyWeekly();
+    L.picks = L.picks.slice(0, packSize());
+    L.full = false;
+    renderLessons();
+  }
+  if (n === "mode" || n === "place") {
+    document.getElementById("l-where").hidden = fields.mode.value !== "inperson";
+    document.getElementById("l-area").hidden = fields.place.value !== "home";
+  }
+  if (n === "days") {
+    if (fields.days.value === "one") E.picks = E.picks.slice(0, 1);
+    renderEvent();
+  }
+  if (["mode", "etype", "message", "name"].includes(n)) errorEl.hidden = true;
+});
+form.addEventListener("input", (e) => {
+  if (e.target.matches("input[type=text], textarea")) errorEl.hidden = true;
+});
+lWeekly.addEventListener("change", () => {
+  applyWeekly();
+  renderLessons();
+});
+
+// ---------- Event ----------
+const E = { picks: [] };
+const eHint = document.getElementById("e-hint");
+const ePicked = document.getElementById("e-picked");
+const eventMax = () => addDays(startOfToday(), SCHEDULE.eventHorizonDays);
+const manyDays = () => fields.days.value === "many";
+
+const eCal = makeCalendar(document.getElementById("e-cal"), {
+  isOpen: (date) => date >= addDays(startOfToday(), 1) && date <= eventMax(),
+  max: eventMax,
+  state: (key) => ({ picked: E.picks.some((p) => p.date === key) }),
+  onPick: (key) => {
+    const existing = E.picks.find((p) => p.date === key);
+    const lastTime = E.picks.at(-1)?.time || "";
+    if (existing) E.picks = E.picks.filter((p) => p !== existing);
+    else if (!manyDays()) E.picks = [{ date: key, time: E.picks[0]?.time || "" }];
+    else if (E.picks.length < 10) E.picks = [...E.picks, { date: key, time: lastTime }].sort(byDate);
+    errorEl.hidden = true;
+    renderEvent();
+  },
+});
+
+function renderEvent() {
+  eHint.textContent = E.picks.length ? "" : t(manyDays() ? "book.e.pickHintMany" : "book.e.pickHint");
+  eHint.hidden = E.picks.length > 0;
+  ePicked.replaceChildren(
+    ...E.picks.map((p) => {
+      const li = document.createElement("li");
+      li.className = "with-time";
+      const day = document.createElement("span");
+      day.textContent = fmtDate(p.date);
+      const field = document.createElement("label");
+      field.className = "time-field";
+      const cap = document.createElement("span");
+      cap.textContent = t("book.e.start");
+      const input = document.createElement("input");
+      input.type = "time";
+      input.step = 900;
+      input.className = "glass-inset";
+      input.value = p.time;
+      input.addEventListener("input", () => {
+        p.time = input.value;
+        errorEl.hidden = true;
+      });
+      field.append(cap, input);
+      li.append(day, field, removeButton(day.textContent, () => {
+        E.picks = E.picks.filter((x) => x !== p);
+        renderEvent();
+      }));
+      return li;
+    })
+  );
+  eCal.render();
+}
+
+// ---------- Tabs & entry points ----------
+const bookTabs = [...document.querySelectorAll(".book-tabs [role=tab]")];
+let flow = "lessons";
+
+function setFlow(name, focus) {
+  flow = name;
+  bookTabs.forEach((b) => {
+    const on = b.dataset.flow === name;
+    b.setAttribute("aria-selected", String(on));
+    b.tabIndex = on ? 0 : -1;
+    if (on) {
+      form.setAttribute("aria-labelledby", b.id);
+      if (focus) b.focus();
+    }
+  });
+  form.querySelectorAll(".flow").forEach((f) => (f.hidden = f.dataset.flow !== name));
+  errorEl.hidden = true;
+}
+bookTabs.forEach((tab, i) => {
+  tab.addEventListener("click", () => setFlow(tab.dataset.flow));
+  tab.addEventListener("keydown", (e) => {
+    const rtl = document.documentElement.dir === "rtl";
+    const step = { ArrowRight: rtl ? -1 : 1, ArrowLeft: rtl ? 1 : -1 }[e.key];
+    if (!step) return;
+    e.preventDefault();
+    setFlow(bookTabs[(i + step + bookTabs.length) % bookTabs.length].dataset.flow, true);
+  });
+});
+
+// CTA buttons elsewhere on the page open the matching form
 document.querySelectorAll("[data-service]").forEach((a) =>
-  a.addEventListener("click", () => (fields.service.value = a.dataset.service))
+  a.addEventListener("click", () => {
+    const s = a.dataset.service;
+    setFlow(s === "event" ? "event" : "lessons");
+    if (s === "trial") {
+      form.querySelector('input[name="pack"][value="1"]').checked = true;
+      L.picks = L.picks.slice(0, 1);
+      L.full = false;
+      renderLessons();
+    }
+  })
 );
+
+// ---------- Message ----------
+function fail(key, el) {
+  errorEl.textContent = t(key);
+  errorEl.hidden = false;
+  el?.focus();
+  return null;
+}
 
 function composeMessage() {
   const name = fields.name.value.trim();
-  if (!name) {
-    errorEl.hidden = false;
-    fields.name.focus();
-    return null;
+  const lines = [t("msg.greeting"), ""];
+  let subject = t("msg.subject");
+
+  if (flow === "lessons") {
+    const mode = checked("mode");
+    if (!mode) return fail("book.err.mode", form.querySelector('input[name="mode"]'));
+    if (!L.picks.length) return fail("book.err.lessons", lCal.first());
+    const noTime = L.picks.findIndex((p) => !p.time);
+    if (noTime >= 0) return fail("book.err.lessonTime", lPicked.querySelectorAll("select")[noTime]);
+    if (!name) return fail("form.error", fields.name);
+    const instrument = chipText(checked("instrument"));
+    const pack = checked("pack");
+    let format = chipText(mode);
+    if (mode.value === "inperson") {
+      format += ` — ${chipText(checked("place"))}`;
+      const area = fields.area.value.trim();
+      if (fields.place.value === "home" && area) format += ` (${area})`;
+    }
+    const age = fields.age.value.trim();
+    subject = `${t("msg.subjectLessons")} — ${instrument}`;
+    lines.push(
+      t("msg.lessonsIntro"), "",
+      `${t("msg.name")}: ${name}`,
+      `${t("msg.instrument")}: ${instrument}`,
+      `${t("msg.pack")}: ${pack.closest("label").querySelector("strong").textContent}`,
+      `${t("msg.format")}: ${format}`,
+      `${t("msg.duration")}: ${chipText(checked("duration"))}`,
+      "",
+      `${t("msg.lessons")} ${t("msg.tz")}:`,
+      ...L.picks.map((p) => `• ${fmtDate(p.date)} · ${fmtTime(p.time)}`)
+    );
+    if (L.picks.length < packSize()) lines.push(t("msg.rest"));
+    lines.push(
+      "",
+      `${t("msg.student")}: ${fields.who.selectedOptions[0].textContent}` +
+        (age ? ` (${t("msg.age").replace("{n}", age)})` : "") +
+        ` · ${t("msg.level")}: ${fields.level.selectedOptions[0].textContent}`
+    );
+    const comments = fields.comments.value.trim();
+    if (comments) lines.push("", comments);
+  } else if (flow === "event") {
+    const type = checked("etype");
+    if (!type) return fail("book.err.type", form.querySelector('input[name="etype"]'));
+    if (!E.picks.length) return fail("book.err.date", eCal.first());
+    const missing = E.picks.findIndex((p) => !p.time);
+    if (missing >= 0) return fail("book.err.time", ePicked.querySelectorAll("input")[missing]);
+    if (!name) return fail("form.error", fields.name);
+    const music = checked("music");
+    subject = `${t("msg.subjectEvent")} — ${chipText(type)}`;
+    lines.push(t("msg.eventIntro"), "", `${t("msg.name")}: ${name}`, `${t("msg.event")}: ${chipText(type)}`);
+    if (music) lines.push(`${t("msg.music")}: ${chipText(music)}`);
+    lines.push("", `${t("msg.dates")} ${t("msg.tz")}:`, ...E.picks.map((p) => `• ${fmtDate(p.date)} · ${fmtTime(p.time)}`));
+    const location = fields.location.value.trim();
+    if (location) lines.push(`${t("msg.location")}: ${location}`);
+    const details = fields.details.value.trim();
+    if (details) lines.push("", details);
+  } else {
+    const message = fields.message.value.trim();
+    if (!message) return fail("book.err.message", fields.message);
+    if (!name) return fail("form.error", fields.name);
+    lines.push(`${t("msg.name")}: ${name}`, "", message);
   }
   errorEl.hidden = true;
-  const service = fields.service.selectedOptions[0].textContent;
-  const lines = [
-    t("msg.greeting"),
-    "",
-    `${t("msg.name")}: ${name}`,
-    `${t("msg.service")}: ${service}`,
-  ];
-  if (fields.date.value) lines.push(`${t("msg.date")}: ${fields.date.value}`);
-  const message = fields.message.value.trim();
-  if (message) lines.push("", message);
-  return { text: lines.join("\n"), service };
+  return { text: lines.join("\n"), subject };
 }
 
 form.addEventListener("submit", (e) => {
@@ -653,11 +1335,16 @@ form.addEventListener("submit", (e) => {
 document.getElementById("send-email").addEventListener("click", () => {
   const msg = composeMessage();
   if (!msg) return;
-  const subject = `${t("msg.subject")} — ${msg.service}`;
-  location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(msg.text)}`;
+  location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent(msg.subject)}&body=${encodeURIComponent(msg.text)}`;
 });
 
-fields.name.addEventListener("input", () => (errorEl.hidden = true));
+renderLessons();
+renderEvent();
+document.addEventListener("langchange", () => {
+  renderLessons();
+  renderEvent();
+});
+
 document.getElementById("year").textContent = new Date().getFullYear();
 
 // ---- Reviews (stored in a Google Sheet, published only once approved) ----
@@ -673,6 +1360,11 @@ const reviewThanks = document.getElementById("review-thanks");
 const reviewStars = reviewForm.querySelector(".stars");
 const reviewSubmit = reviewForm.querySelector('[type="submit"]');
 const REVIEWS_PAGE = 6;
+// Each category the visitor can pick, and the tab it is listed under
+const REVIEW_GROUP = {
+  piano: "lessons", violin: "lessons",
+  wedding: "events", memorial: "events", corporate: "events", private: "events",
+};
 
 let reviews = null;            // null while loading
 let reviewCat = "lessons";
@@ -712,13 +1404,23 @@ function reviewCard(r) {
     cap.append(detail);
   }
 
-  card.append(stars, quote, cap);
+  const head = document.createElement("div");
+  head.className = "review-head";
+  head.append(stars);
+  if (REVIEW_GROUP[r.category]) {
+    const tag = document.createElement("span");
+    tag.className = "review-tag";
+    tag.textContent = t(`reviews.c.${r.category}`);
+    head.append(tag);
+  }
+
+  card.append(head, quote, cap);
   addSpecular(card);
   return card;
 }
 
 function renderReviews() {
-  const items = (reviews || []).filter((r) => r.category === reviewCat && r.text && r.name);
+  const items = (reviews || []).filter((r) => REVIEW_GROUP[r.category] === reviewCat && r.text && r.name);
   reviewList.replaceChildren(...items.slice(0, reviewsShown).map(reviewCard));
   reviewEmpty.hidden = items.length > 0;
   reviewEmpty.textContent = t(reviews === null ? "reviews.loading" : "reviews.empty");
@@ -791,7 +1493,6 @@ function setReviewPanel(open) {
   reviewForm.hidden = false;
   reviewThanks.hidden = true;
   reviewError.hidden = true;
-  reviewForm.elements.category.value = reviewCat;
   reviewForm.elements.name.focus({ preventScroll: true });
   reviewPanel.scrollIntoView({ behavior: calmMotion ? "auto" : "smooth", block: "nearest" });
 }
@@ -803,6 +1504,7 @@ document.getElementById("review-cancel").addEventListener("click", () => {
 
 reviewForm.addEventListener("change", (e) => {
   if (e.target.name === "rating") reviewStars.dataset.value = e.target.value;
+  if (e.target.name === "category") reviewError.hidden = true;
 });
 
 function showReviewError(key) {
@@ -827,11 +1529,16 @@ reviewForm.addEventListener("submit", async (e) => {
     (data.name ? f.text : f.name).focus();
     return;
   }
+  if (!REVIEW_GROUP[data.category]) {
+    showReviewError("reviews.form.pick");
+    f.category[0].focus();
+    return;
+  }
   reviewError.hidden = true;
 
   // Not connected to the sheet yet: hand the review over by email
   if (!CONFIG.reviewsEndpoint) {
-    const cat = f.category.selectedOptions[0].textContent;
+    const cat = t(`reviews.c.${data.category}`);
     const body = [
       `${t("msg.name")}: ${data.name}`,
       `${t("reviews.form.category")}: ${cat}${data.detail ? ` — ${data.detail}` : ""}`,
@@ -852,6 +1559,7 @@ reviewForm.addEventListener("submit", async (e) => {
     if (!out.ok) throw new Error(out.error || "failed");
     reviewForm.reset();
     reviewStars.dataset.value = "5";
+    reviewForm.elements.category.forEach((c) => (c.checked = false));
     reviewForm.hidden = true;
     reviewThanks.hidden = false;
   } catch (_) {

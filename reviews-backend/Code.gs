@@ -8,7 +8,15 @@
 
 const SHEET_NAME = 'Reseñas';
 const HEADERS = ['Fecha', 'Nombre', 'Categoría', 'Estrellas', 'Detalle', 'Reseña', 'Idioma', 'Aprobado'];
-const CATEGORIES = { lessons: 'Clases', events: 'Eventos' };
+// Website key → label shown in the sheet's "Categoría" dropdown
+const CATEGORIES = {
+  piano: 'Clases de piano',
+  violin: 'Clases de violín',
+  wedding: 'Bodas',
+  memorial: 'Memoriales',
+  corporate: 'Corporativos y galas',
+  private: 'Celebraciones privadas',
+};
 const NOTIFY_EMAIL = 'sabrinadbenedicto@gmail.com';   // who gets an email for each new review ('' = none)
 const MAX_PER_HOUR = 30;           // simple flood guard
 
@@ -40,11 +48,11 @@ function json_(obj) {
 function doGet() {
   const rows = getSheet_().getDataRange().getValues().slice(1);
   const reviews = rows
-    .filter((r) => r[7] === true && r[1] && r[5])
+    .filter((r) => r[7] === true && r[1] && r[5] && categoryKey_(r[2]))
     .map((r) => ({
       date: r[0] instanceof Date ? r[0].toISOString().slice(0, 10) : '',
       name: String(r[1]),
-      category: String(r[2]).trim().toLowerCase().startsWith('clase') ? 'lessons' : 'events',
+      category: categoryKey_(r[2]),
       rating: Math.min(5, Math.max(1, Number(r[3]) || 5)),
       detail: String(r[4] || ''),
       text: String(r[5]),
@@ -98,6 +106,13 @@ function doPost(e) {
     } catch (_) { /* the review is saved even if the email fails */ }
   }
   return json_({ ok: true });
+}
+
+/** "Clases de violín" (as typed or picked in the sheet) → "violin". */
+function categoryKey_(label) {
+  const norm = (v) => String(v).normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim().toLowerCase();
+  const want = norm(label);
+  return Object.keys(CATEGORIES).find((k) => norm(CATEGORIES[k]) === want || k === want) || '';
 }
 
 /** Trim, cap length, and stop the sheet from treating input as a formula. */

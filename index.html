@@ -74,8 +74,8 @@
         <h1 data-i18n="hero.title">Music for the moments that matter.</h1>
         <p class="lead" data-i18n="hero.lead">Piano lessons in person and online, and live piano &amp; violin performances for weddings, memorials and private events across the UAE.</p>
         <div class="cta-row">
-          <a href="#lessons" class="btn btn-primary" data-i18n="hero.cta1">Book a lesson</a>
-          <a href="#events" class="btn btn-ghost" data-i18n="hero.cta2">Plan your event</a>
+          <a href="#contact" class="btn btn-primary" data-service="lesson" data-i18n="hero.cta1">Book a lesson</a>
+          <a href="#contact" class="btn btn-ghost" data-service="event" data-i18n="hero.cta2">Plan your event</a>
         </div>
       </div>
 
@@ -154,7 +154,7 @@
           <li class="glass-inset" data-i18n="lessons.t5">Pop &amp; film music</li>
           <li class="glass-inset" data-i18n="lessons.t6">Exam preparation</li>
         </ul>
-        <a href="#contact" class="btn btn-primary" data-service="lesson-in" data-i18n="lessons.cta">Request a trial lesson</a>
+        <a href="#contact" class="btn btn-primary" data-service="trial" data-i18n="lessons.cta">Request a trial lesson</a>
       </div>
     </section>
 
@@ -165,7 +165,7 @@
         <p class="eyebrow" data-i18n="dubai.eyebrow">Dubai · UAE</p>
         <h2 id="dubai-title" data-i18n="dubai.title">Live music across Dubai.</h2>
         <p class="lead" data-i18n="dubai.lead">From Downtown to the Marina — weddings, galas and private celebrations, wherever your day takes place.</p>
-        <a href="#contact" class="btn btn-primary" data-service="wedding" data-i18n="dubai.cta">Book live music</a>
+        <a href="#contact" class="btn btn-primary" data-service="event" data-i18n="dubai.cta">Book live music</a>
       </div>
     </section>
 
@@ -225,7 +225,7 @@
           <li><span class="num">02</span><div><strong data-i18n="events.s2.t">We shape the repertoire</strong><p data-i18n="events.s2.d">A suggested set list, with room for your special requests.</p></div></li>
           <li><span class="num">03</span><div><strong data-i18n="events.s3.t">We play, you enjoy</strong><p data-i18n="events.s3.d">Early arrival, full setup and music without worries.</p></div></li>
         </ol>
-        <a href="#contact" class="btn btn-primary" data-service="wedding" data-i18n="events.cta">Check availability</a>
+        <a href="#contact" class="btn btn-primary" data-service="event" data-i18n="events.cta">Check availability</a>
       </div>
     </section>
 
@@ -252,13 +252,6 @@
             <span data-i18n="reviews.form.name">Name</span>
             <input class="glass-inset" type="text" name="name" required maxlength="60" autocomplete="name">
           </label>
-          <label>
-            <span data-i18n="reviews.form.category">Your review is about</span>
-            <select class="glass-inset" name="category">
-              <option value="lessons" data-i18n="reviews.tab.lessons">Lessons</option>
-              <option value="events" data-i18n="reviews.tab.events">Events &amp; performances</option>
-            </select>
-          </label>
           <fieldset class="stars" data-value="5">
             <legend data-i18n="reviews.form.rating">Rating</legend>
             <label><input type="radio" name="rating" value="1"><span aria-hidden="true">★</span><span class="sr-only" data-i18n="reviews.r1">1 star</span></label>
@@ -267,9 +260,24 @@
             <label><input type="radio" name="rating" value="4"><span aria-hidden="true">★</span><span class="sr-only" data-i18n="reviews.r4">4 stars</span></label>
             <label><input type="radio" name="rating" value="5" checked><span aria-hidden="true">★</span><span class="sr-only" data-i18n="reviews.r5">5 stars</span></label>
           </fieldset>
-          <label>
-            <span data-i18n="reviews.form.detail">Lesson or event (optional)</span>
-            <input class="glass-inset" type="text" name="detail" maxlength="80" data-i18n-placeholder="reviews.form.detailPh" placeholder="e.g. Online lessons, wedding in Dubai Marina">
+          <fieldset class="chips full" id="review-category">
+            <legend data-i18n="reviews.form.category">Your review is about</legend>
+            <div class="chip-row">
+              <span class="chip-group" data-i18n="reviews.tab.lessons">Lessons</span>
+              <label class="chip"><input type="radio" name="category" value="piano"><span data-i18n="reviews.c.piano">Piano lessons</span></label>
+              <label class="chip"><input type="radio" name="category" value="violin"><span data-i18n="reviews.c.violin">Violin lessons</span></label>
+            </div>
+            <div class="chip-row">
+              <span class="chip-group" data-i18n="reviews.g.events">Events</span>
+              <label class="chip"><input type="radio" name="category" value="wedding"><span data-i18n="reviews.c.wedding">Wedding</span></label>
+              <label class="chip"><input type="radio" name="category" value="memorial"><span data-i18n="reviews.c.memorial">Memorial</span></label>
+              <label class="chip"><input type="radio" name="category" value="corporate"><span data-i18n="reviews.c.corporate">Corporate &amp; gala</span></label>
+              <label class="chip"><input type="radio" name="category" value="private"><span data-i18n="reviews.c.private">Private celebration</span></label>
+            </div>
+          </fieldset>
+          <label class="full">
+            <span data-i18n="reviews.form.detail">Details (optional)</span>
+            <input class="glass-inset" type="text" name="detail" maxlength="80" data-i18n-placeholder="reviews.form.detailPh" placeholder="e.g. Dubai Marina, June 2026 · 2 years of lessons">
           </label>
           <label class="full">
             <span data-i18n="reviews.form.text">Your review</span>
@@ -291,49 +299,203 @@
       <div class="reviews-more"><button type="button" class="btn btn-ghost btn-sm" id="reviews-more" hidden data-i18n="reviews.more">Show more</button></div>
     </section>
 
-    <!-- Contact -->
+    <!-- Booking -->
     <section id="contact" class="section">
-      <div class="contact glass reveal">
-        <div class="contact-intro">
-          <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
-          <h2 data-i18n="contact.title">Let's make music together.</h2>
-          <p class="lead" data-i18n="contact.lead">Tell us what you have in mind and we'll get back to you soon.</p>
-          <ul class="contact-links">
-            <li><a id="wa-link" href="#" target="_blank" rel="noopener">WhatsApp</a></li>
-            <li><a id="mail-link" href="#">Email</a></li>
-            <li><a id="ig-link" href="#" target="_blank" rel="noopener">Instagram</a></li>
-          </ul>
+      <header class="section-head reveal">
+        <p class="eyebrow" data-i18n="book.eyebrow">Book</p>
+        <h2 data-i18n="book.title">Book your lessons or your event.</h2>
+        <p class="lead" data-i18n="book.lead">Choose what you need and send your request — Sabrina will confirm availability and the next steps personally.</p>
+        <ul class="contact-links">
+          <li><a id="wa-link" href="#" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a id="mail-link" href="#">Email</a></li>
+          <li><a id="ig-link" href="#" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </header>
+
+      <div class="book glass reveal">
+        <div class="tabs glass-inset book-tabs" role="tablist" data-i18n-aria="book.tabs" aria-label="Booking type">
+          <button type="button" role="tab" id="bt-lessons" data-flow="lessons" aria-selected="true" aria-controls="book-form" data-i18n="book.tab.lessons">Lessons</button>
+          <button type="button" role="tab" id="bt-event" data-flow="event" aria-selected="false" aria-controls="book-form" tabindex="-1" data-i18n="book.tab.event">Event</button>
+          <button type="button" role="tab" id="bt-other" data-flow="other" aria-selected="false" aria-controls="book-form" tabindex="-1" data-i18n="book.tab.other">Other enquiry</button>
         </div>
 
-        <form id="contact-form" class="form" novalidate>
-          <label>
-            <span data-i18n="form.name">Name</span>
-            <input class="glass-inset" type="text" name="name" required autocomplete="name">
-          </label>
-          <label>
-            <span data-i18n="form.service">Service</span>
-            <select class="glass-inset" name="service">
-              <option value="lesson-in" data-i18n="form.o1">Piano lessons — in person</option>
-              <option value="lesson-online" data-i18n="form.o2">Piano lessons — online</option>
-              <option value="wedding" data-i18n="form.o3">Wedding</option>
-              <option value="memorial" data-i18n="form.o4">Memorial</option>
-              <option value="corporate" data-i18n="form.o5">Corporate event</option>
-              <option value="other" data-i18n="form.o6">Other</option>
-            </select>
-          </label>
-          <label>
-            <span data-i18n="form.date">Date (optional)</span>
-            <input class="glass-inset" type="date" name="date">
-          </label>
-          <label class="full">
-            <span data-i18n="form.message">Message</span>
-            <textarea class="glass-inset" name="message" rows="4" data-i18n-placeholder="form.placeholder" placeholder="Tell us a little more…"></textarea>
-          </label>
-          <div class="form-actions full">
-            <button type="submit" class="btn btn-primary" data-i18n="form.submit">Send via WhatsApp</button>
-            <button type="button" class="btn btn-ghost" id="send-email" data-i18n="form.email">Send by email</button>
+        <form id="book-form" class="book-form" role="tabpanel" aria-labelledby="bt-lessons" novalidate>
+          <!-- Lessons -->
+          <div class="flow" data-flow="lessons">
+            <fieldset class="step">
+              <legend class="step-title" data-i18n="book.l.instrument">Instrument</legend>
+              <div class="chip-row">
+                <label class="chip"><input type="radio" name="instrument" value="piano" checked><span data-i18n="book.piano">Piano</span></label>
+                <label class="chip"><input type="radio" name="instrument" value="violin"><span data-i18n="book.violin">Violin</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="step">
+              <legend class="step-title" data-i18n="book.l.pack">Package</legend>
+              <div class="packs">
+                <label class="pack"><input type="radio" name="pack" value="1" checked><span class="pack-body"><strong data-i18n="book.p1.t">Trial lesson</strong><small data-i18n="book.p1.d">One lesson to meet and set goals</small></span></label>
+                <label class="pack"><input type="radio" name="pack" value="4"><span class="pack-body"><strong data-i18n="book.p4.t">4 lessons</strong><small data-i18n="book.p4.d">One month, once a week</small></span></label>
+                <label class="pack"><input type="radio" name="pack" value="8"><span class="pack-body"><strong data-i18n="book.p8.t">8 lessons</strong><small data-i18n="book.p8.d">Two months, or twice a week</small></span></label>
+                <label class="pack"><input type="radio" name="pack" value="12"><span class="pack-body"><strong data-i18n="book.p12.t">12 lessons</strong><small data-i18n="book.p12.d">A full term</small></span></label>
+              </div>
+              <p class="hint" data-i18n="book.l.packNote">Sabrina will confirm prices with your booking.</p>
+            </fieldset>
+
+            <fieldset class="step">
+              <legend class="step-title" data-i18n="book.l.format">Format</legend>
+              <div class="sub-grid">
+                <div>
+                  <div class="chip-row" id="l-mode">
+                    <label class="chip"><input type="radio" name="mode" value="inperson"><span data-i18n="book.inperson">In person</span></label>
+                    <label class="chip"><input type="radio" name="mode" value="online"><span data-i18n="book.online">Online</span></label>
+                  </div>
+                </div>
+                <div>
+                  <p class="sub-label" data-i18n="book.l.duration">Lesson length</p>
+                  <div class="chip-row">
+                    <label class="chip"><input type="radio" name="duration" value="45"><span data-i18n="book.min45">45 min</span></label>
+                    <label class="chip"><input type="radio" name="duration" value="60" checked><span data-i18n="book.min60">60 min</span></label>
+                  </div>
+                </div>
+              </div>
+              <div class="where" id="l-where" hidden>
+                <p class="sub-label" data-i18n="book.l.where">Where</p>
+                <div class="chip-row">
+                  <label class="chip"><input type="radio" name="place" value="studio" checked><span data-i18n="book.studio">At the studio</span></label>
+                  <label class="chip"><input type="radio" name="place" value="home"><span data-i18n="book.home">At my home</span></label>
+                </div>
+                <label class="field" id="l-area" hidden>
+                  <span data-i18n="book.l.area">Area in Dubai (optional)</span>
+                  <input class="glass-inset" type="text" name="area" maxlength="80" data-i18n-placeholder="book.l.areaPh" placeholder="e.g. JLT, Downtown, Arabian Ranches">
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="step">
+              <legend class="step-title" data-i18n="book.l.when">Days &amp; times</legend>
+              <p class="hint" id="l-count" aria-live="polite"></p>
+              <div class="cal-wrap">
+                <div class="cal" id="l-cal"></div>
+                <div class="slots">
+                  <p class="sub-label" id="l-hint"></p>
+                  <ul class="picked" id="l-picked"></ul>
+                  <label class="check"><input type="checkbox" id="l-weekly"><span data-i18n="book.l.weekly">Same day &amp; time every week</span></label>
+                </div>
+              </div>
+              <p class="hint" data-i18n="book.tz">Times are in Dubai time (GST, UTC+4).</p>
+            </fieldset>
+
+            <fieldset class="step">
+              <legend class="step-title" data-i18n="book.l.student">About the student</legend>
+              <div class="fields">
+                <label class="field">
+                  <span data-i18n="book.l.who">Lessons for</span>
+                  <select class="glass-inset" name="who">
+                    <option value="me" data-i18n="book.whoMe">Me</option>
+                    <option value="child" data-i18n="book.whoChild">My child</option>
+                  </select>
+                </label>
+                <label class="field">
+                  <span data-i18n="book.l.age">Age (optional)</span>
+                  <input class="glass-inset" type="number" name="age" min="3" max="99" inputmode="numeric">
+                </label>
+                <label class="field">
+                  <span data-i18n="book.l.level">Level</span>
+                  <select class="glass-inset" name="level">
+                    <option value="lv1" data-i18n="book.lv1">Beginner</option>
+                    <option value="lv2" data-i18n="book.lv2">Some experience</option>
+                    <option value="lv3" data-i18n="book.lv3">Advanced</option>
+                  </select>
+                </label>
+                <label class="field full">
+                  <span data-i18n="book.l.comments">Comments (optional)</span>
+                  <textarea class="glass-inset" name="comments" rows="3" maxlength="800" data-i18n-placeholder="book.l.commentsPh" placeholder="Goals, favourite music…"></textarea>
+                </label>
+              </div>
+            </fieldset>
           </div>
-          <p class="form-error full" id="form-error" role="alert" hidden data-i18n="form.error">Please add your name.</p>
+
+          <!-- Event -->
+          <div class="flow" data-flow="event" hidden>
+            <fieldset class="step">
+              <legend class="step-title" data-i18n="book.e.type">Type of event</legend>
+              <div class="chip-row" id="e-type">
+                <label class="chip"><input type="radio" name="etype" value="wedding"><span data-i18n="reviews.c.wedding">Wedding</span></label>
+                <label class="chip"><input type="radio" name="etype" value="memorial"><span data-i18n="reviews.c.memorial">Memorial</span></label>
+                <label class="chip"><input type="radio" name="etype" value="corporate"><span data-i18n="reviews.c.corporate">Corporate &amp; gala</span></label>
+                <label class="chip"><input type="radio" name="etype" value="private"><span data-i18n="reviews.c.private">Private celebration</span></label>
+                <label class="chip"><input type="radio" name="etype" value="other"><span data-i18n="book.e.other">Other</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="step">
+              <legend class="step-title" data-i18n="book.e.music">Music (optional)</legend>
+              <div class="chip-row">
+                <label class="chip"><input type="radio" name="music" value="f1"><span data-i18n="events.f1">Solo piano</span></label>
+                <label class="chip"><input type="radio" name="music" value="f2"><span data-i18n="events.f2">Solo violin</span></label>
+                <label class="chip"><input type="radio" name="music" value="f3"><span data-i18n="events.f3">Piano &amp; violin duo</span></label>
+                <label class="chip"><input type="radio" name="music" value="unsure"><span data-i18n="book.e.unsure">Not sure yet</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="step">
+              <legend class="step-title" data-i18n="book.e.date">Date &amp; time</legend>
+              <div class="chip-row">
+                <label class="chip"><input type="radio" name="days" value="one" checked><span data-i18n="book.e.one">One day</span></label>
+                <label class="chip"><input type="radio" name="days" value="many"><span data-i18n="book.e.many">Several days</span></label>
+              </div>
+              <div class="cal-wrap">
+                <div class="cal" id="e-cal"></div>
+                <div class="slots">
+                  <p class="sub-label" id="e-hint"></p>
+                  <ul class="picked" id="e-picked"></ul>
+                </div>
+              </div>
+              <p class="hint" data-i18n="book.tz">Times are in Dubai time (GST, UTC+4).</p>
+            </fieldset>
+
+            <fieldset class="step">
+              <legend class="step-title" data-i18n="book.e.more">Location &amp; details</legend>
+              <div class="fields">
+                <label class="field full">
+                  <span data-i18n="book.e.location">Location (optional)</span>
+                  <input class="glass-inset" type="text" name="location" maxlength="120" data-i18n-placeholder="book.e.locationPh" placeholder="Venue or area">
+                </label>
+                <label class="field full">
+                  <span data-i18n="book.e.details">Details (optional)</span>
+                  <textarea class="glass-inset" name="details" rows="3" maxlength="800" data-i18n-placeholder="book.e.detailsPh" placeholder="Guests, special songs…"></textarea>
+                </label>
+              </div>
+            </fieldset>
+          </div>
+
+          <!-- Other enquiry -->
+          <div class="flow" data-flow="other" hidden>
+            <fieldset class="step">
+              <legend class="step-title" data-i18n="form.message">Message</legend>
+              <label class="field full">
+                <span class="sr-only" data-i18n="form.message">Message</span>
+                <textarea class="glass-inset" name="message" rows="5" maxlength="1500" data-i18n-placeholder="form.placeholder" placeholder="Tell us a little more…"></textarea>
+              </label>
+            </fieldset>
+          </div>
+
+          <!-- Shared -->
+          <fieldset class="step">
+            <legend class="step-title" data-i18n="book.you">Your details</legend>
+            <div class="fields">
+              <label class="field">
+                <span data-i18n="form.name">Name</span>
+                <input class="glass-inset" type="text" name="name" required maxlength="80" autocomplete="name">
+              </label>
+            </div>
+            <p class="hint" data-i18n="book.note">Nothing is charged now — Sabrina will reply to confirm.</p>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary" data-i18n="form.submit">Send via WhatsApp</button>
+              <button type="button" class="btn btn-ghost" id="send-email" data-i18n="form.email">Send by email</button>
+            </div>
+            <p class="form-error" id="form-error" role="alert" hidden></p>
+          </fieldset>
         </form>
       </div>
     </section>

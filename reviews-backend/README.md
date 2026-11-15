@@ -33,9 +33,12 @@ Hacé commit y push, y listo.
 
 - Cuando llega una reseña nueva, Sabrina recibe un email en sabrinadbenedicto@gmail.com con el texto y el link a la planilla.
 - Para **publicarla**, marcá ✅ en **Aprobado**. Aparece en la web al recargar la página.
+  Se ubica sola según la **Categoría**: *Clases de piano* y *Clases de violín* van a la pestaña **Clases**;
+  *Bodas*, *Memoriales*, *Corporativos y galas* y *Celebraciones privadas* van a **Eventos**.
+  Si la persona eligió mal, cambiá la categoría en la planilla y se mueve sola.
 - Para **ocultarla**, desmarcá la casilla. Para borrarla del todo, borrá la fila.
 - Para **cargar reseñas que ya tiene** (de WhatsApp, Google, etc.), agregá una fila a mano:
-  Nombre, Categoría (*Clases* o *Eventos*), Estrellas (1–5), Detalle (opcional), Reseña, y marcá Aprobado.
+  Nombre, Categoría (elegila del desplegable), Estrellas (1–5), Detalle (opcional), Reseña, y marcá Aprobado.
 - Podés corregir errores de tipeo directamente en la celda.
 
 ## Si cambiás `Code.gs` más adelante
