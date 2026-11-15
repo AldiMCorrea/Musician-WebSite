@@ -9,7 +9,7 @@ Both allow free commercial use without attribution.
 | about-violin.jpg | https://www.pexels.com/photo/33068351/ (Pinar) |
 | lesson-in-person.jpg | https://www.pexels.com/photo/6647850/ (Charles Parker) |
 | lesson-online.jpg | https://unsplash.com/photos/OhHPxRrhBIM |
-| event-wedding.jpg | https://unsplash.com/photos/APhT9b8Mbfw |
+| event-wedding.jpg | Sabrina's own photo |
 | event-memorial.jpg | https://unsplash.com/photos/-QHtE6IsLK0 |
 | event-gala.jpg | https://www.pexels.com/photo/37975405/ (moralestorres98) |
 | event-celebration.jpg | https://www.pexels.com/photo/17294823/ (Bertelli Fotografia) |

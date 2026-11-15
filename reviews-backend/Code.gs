@@ -1,5 +1,5 @@
 /**
- * Sabrina Von Arx — reviews backend (Google Apps Script)
+ * Sabrina von Arx — reviews backend (Google Apps Script)
  *
  * The website POSTs new reviews here; they are added to the sheet unapproved.
  * Ticking the "Aprobado" checkbox publishes a review on the site (GET).

@@ -1,5 +1,5 @@
 /* ==========================================================
-   Sabrina Von Arx — site behaviour & translations (EN / ES / AR)
+   Sabrina von Arx — site behaviour & translations (EN / ES / AR)
    ========================================================== */
 
 // ---- Contact details ----
@@ -32,8 +32,8 @@ const SCHEDULE = {
 
 const I18N = {
   en: {
-    "meta.title": "Sabrina Von Arx · Piano & Violin · Dubai",
-    "meta.description": "Piano and violin lessons in person and online, and live piano & violin music for weddings, memorials and events in Dubai.",
+    "meta.title": "Sabrina von Arx · Piano & Violin · Dubai",
+    "meta.description": "Piano and violin lessons in person and online, and live violin music for weddings, memorials and events in Dubai.",
     "nav.about": "About",
     "nav.lessons": "Lessons",
     "nav.events": "Events",
@@ -42,7 +42,7 @@ const I18N = {
 
     "hero.eyebrow": "Piano & Violin · Dubai",
     "hero.title": "Music for the moments that matter.",
-    "hero.lead": "Piano and violin lessons in person and online, and live piano & violin performances for weddings, memorials and private events across the UAE.",
+    "hero.lead": "Piano and violin lessons in person and online, and live violin performances for weddings, memorials and private events across the UAE.",
     "hero.cta1": "Book a lesson",
     "hero.cta2": "Plan your event",
     "anim.listen": "Listen",
@@ -53,7 +53,7 @@ const I18N = {
     "about.p2": "Whether you are sitting at a piano for the first time or choosing the music for the most important day of your life, she listens first — and then shapes the music around you.",
     "about.s1a": "In person · Online",
     "about.s1b": "Piano & violin lessons",
-    "about.s2a": "Piano · Violin · Duo",
+    "about.s2a": "Violin",
     "about.s2b": "Live performances",
     "about.s3a": "Dubai & UAE",
     "about.s3b": "Based in Dubai",
@@ -81,10 +81,10 @@ const I18N = {
     "lessons.cta": "Request a trial lesson",
 
     "events.eyebrow": "Live music",
-    "events.title": "Piano & violin for life's ceremonies.",
+    "events.title": "Violin for life's ceremonies.",
     "events.lead": "Elegant live music tailored to your event — from the first entrance to the last note.",
     "events.w.title": "Weddings",
-    "events.w.text": "Ceremony, nikah, entrance and reception. Your favourite songs, arranged for piano and violin.",
+    "events.w.text": "Ceremony, nikah, entrance and reception. Your favourite songs, arranged for violin.",
     "events.m.title": "Memorials",
     "events.m.text": "Gentle, respectful music to honour and remember a loved one.",
     "events.c.title": "Corporate & gala",
@@ -122,7 +122,7 @@ const I18N = {
     "media.about": "Violin and bow resting on sheet music",
     "media.lessonIn": "A child's hands on the piano keys",
     "media.lessonOn": "Sheet music on a digital piano",
-    "media.wedding": "Violinist performing at a wedding",
+    "media.wedding": "Newlyweds holding hands with their wedding rings",
     "media.memorial": "White candles and flowers at a ceremony",
     "media.gala": "Event stage with lights and flowers",
     "media.celebration": "Elegant dinner tables among greenery",
@@ -288,8 +288,8 @@ const I18N = {
   },
 
   es: {
-    "meta.title": "Sabrina Von Arx · Piano y Violín · Dubái",
-    "meta.description": "Clases de piano y violín presenciales y online, y música en vivo de piano y violín para bodas, memoriales y eventos en Dubái.",
+    "meta.title": "Sabrina von Arx · Piano y Violín · Dubái",
+    "meta.description": "Clases de piano y violín presenciales y online, y música en vivo de violín para bodas, memoriales y eventos en Dubái.",
     "nav.about": "Sobre mí",
     "nav.lessons": "Clases",
     "nav.events": "Eventos",
@@ -298,7 +298,7 @@ const I18N = {
 
     "hero.eyebrow": "Piano y Violín · Dubái",
     "hero.title": "Música para los momentos que importan.",
-    "hero.lead": "Clases de piano y violín presenciales y online, y actuaciones en vivo de piano y violín para bodas, memoriales y eventos privados en todos los Emiratos.",
+    "hero.lead": "Clases de piano y violín presenciales y online, y actuaciones en vivo de violín para bodas, memoriales y eventos privados en todos los Emiratos.",
     "hero.cta1": "Reservar una clase",
     "hero.cta2": "Planear tu evento",
     "anim.listen": "Escuchar",
@@ -309,7 +309,7 @@ const I18N = {
     "about.p2": "Ya sea que te sientes al piano por primera vez o que estés eligiendo la música del día más importante de tu vida, ella escucha primero — y luego da forma a la música a tu alrededor.",
     "about.s1a": "Presencial · Online",
     "about.s1b": "Clases de piano y violín",
-    "about.s2a": "Piano · Violín · Dúo",
+    "about.s2a": "Violín",
     "about.s2b": "Actuaciones en vivo",
     "about.s3a": "Dubái y EAU",
     "about.s3b": "Con base en Dubái",
@@ -337,10 +337,10 @@ const I18N = {
     "lessons.cta": "Solicitar clase de prueba",
 
     "events.eyebrow": "Música en vivo",
-    "events.title": "Piano y violín para las ceremonias de la vida.",
+    "events.title": "Violín para las ceremonias de la vida.",
     "events.lead": "Música en vivo elegante, a la medida de tu evento — desde la primera entrada hasta la última nota.",
     "events.w.title": "Bodas",
-    "events.w.text": "Ceremonia, nikah, entrada y recepción. Tus canciones favoritas, arregladas para piano y violín.",
+    "events.w.text": "Ceremonia, nikah, entrada y recepción. Tus canciones favoritas, arregladas para violín.",
     "events.m.title": "Memoriales",
     "events.m.text": "Música serena y respetuosa para honrar y recordar a un ser querido.",
     "events.c.title": "Corporativos y galas",
@@ -378,7 +378,7 @@ const I18N = {
     "media.about": "Violín y arco sobre partituras",
     "media.lessonIn": "Manos de una niña sobre el teclado del piano",
     "media.lessonOn": "Partitura sobre un piano digital",
-    "media.wedding": "Violinista tocando en una boda",
+    "media.wedding": "Recién casados tomados de la mano con sus alianzas",
     "media.memorial": "Velas blancas y flores en una ceremonia",
     "media.gala": "Escenario de evento con luces y flores",
     "media.celebration": "Mesas de cena elegantes entre vegetación",
@@ -545,7 +545,7 @@ const I18N = {
 
   ar: {
     "meta.title": "سابرينا فون آركس · بيانو وكمان · دبي",
-    "meta.description": "دروس بيانو وكمان حضورية وعبر الإنترنت، وموسيقى حيّة بالبيانو والكمان لحفلات الزفاف ومراسم التأبين والمناسبات في دبي.",
+    "meta.description": "دروس بيانو وكمان حضورية وعبر الإنترنت، وموسيقى حيّة بالكمان لحفلات الزفاف ومراسم التأبين والمناسبات في دبي.",
     "nav.about": "نبذة",
     "nav.lessons": "الدروس",
     "nav.events": "المناسبات",
@@ -554,7 +554,7 @@ const I18N = {
 
     "hero.eyebrow": "بيانو وكمان · دبي",
     "hero.title": "موسيقى للّحظات التي تهمّك.",
-    "hero.lead": "دروس بيانو وكمان حضورية وعبر الإنترنت، وعروض حيّة بالبيانو والكمان لحفلات الزفاف ومراسم التأبين والمناسبات الخاصة في جميع أنحاء الإمارات.",
+    "hero.lead": "دروس بيانو وكمان حضورية وعبر الإنترنت، وعروض حيّة بالكمان لحفلات الزفاف ومراسم التأبين والمناسبات الخاصة في جميع أنحاء الإمارات.",
     "hero.cta1": "احجز درساً",
     "hero.cta2": "خطّط لمناسبتك",
     "anim.listen": "استمع",
@@ -565,7 +565,7 @@ const I18N = {
     "about.p2": "سواء كنت تجلس أمام البيانو لأول مرة أو تختار موسيقى أهم يوم في حياتك، فهي تُصغي أولاً — ثم تصوغ الموسيقى من حولك.",
     "about.s1a": "حضورياً · عبر الإنترنت",
     "about.s1b": "دروس البيانو والكمان",
-    "about.s2a": "بيانو · كمان · ثنائي",
+    "about.s2a": "كمان",
     "about.s2b": "عروض حيّة",
     "about.s3a": "دبي والإمارات",
     "about.s3b": "مقيمة في دبي",
@@ -593,10 +593,10 @@ const I18N = {
     "lessons.cta": "اطلب درساً تجريبياً",
 
     "events.eyebrow": "موسيقى حيّة",
-    "events.title": "بيانو وكمان لأجمل مناسبات الحياة.",
+    "events.title": "الكمان لأجمل مناسبات الحياة.",
     "events.lead": "موسيقى حيّة راقية مصمّمة لمناسبتك — من لحظة الدخول حتى النغمة الأخيرة.",
     "events.w.title": "حفلات الزفاف",
-    "events.w.text": "عقد القران والزفّة والاستقبال. أغانيكم المفضّلة بتوزيع للبيانو والكمان.",
+    "events.w.text": "عقد القران والزفّة والاستقبال. أغانيكم المفضّلة بتوزيع للكمان.",
     "events.m.title": "مراسم التأبين",
     "events.m.text": "موسيقى هادئة ووقورة لتكريم ذكرى من نحب.",
     "events.c.title": "الشركات والحفلات الرسمية",
@@ -634,7 +634,7 @@ const I18N = {
     "media.about": "كمان وقوس على النوتات الموسيقية",
     "media.lessonIn": "يدا طفلة على مفاتيح البيانو",
     "media.lessonOn": "نوتة موسيقية على بيانو رقمي",
-    "media.wedding": "عازف كمان في حفل زفاف",
+    "media.wedding": "عروسان يمسكان بأيدي بعضهما بخاتمي الزواج",
     "media.memorial": "شموع بيضاء وزهور في مراسم",
     "media.gala": "منصة مناسبة بالأضواء والزهور",
     "media.celebration": "طاولات عشاء أنيقة وسط الخضرة",
