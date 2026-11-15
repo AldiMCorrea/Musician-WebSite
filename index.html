@@ -44,6 +44,7 @@
         <li><a href="#about" data-i18n="nav.about">About</a></li>
         <li><a href="#lessons" data-i18n="nav.lessons">Lessons</a></li>
         <li><a href="#events" data-i18n="nav.events">Events</a></li>
+        <li><a href="#reviews" data-i18n="nav.reviews">Reviews</a></li>
         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
 
@@ -226,6 +227,68 @@
         </ol>
         <a href="#contact" class="btn btn-primary" data-service="wedding" data-i18n="events.cta">Check availability</a>
       </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" class="section">
+      <header class="section-head reveal">
+        <p class="eyebrow" data-i18n="reviews.eyebrow">Reviews</p>
+        <h2 data-i18n="reviews.title">In their words.</h2>
+        <p class="lead" data-i18n="reviews.lead">From students, and from the couples, families and hosts who trusted Sabrina with their day.</p>
+      </header>
+
+      <div class="reviews-bar reveal">
+        <div class="tabs glass-inset" role="tablist" data-i18n-aria="reviews.tabs" aria-label="Review categories">
+          <button type="button" role="tab" id="tab-lessons" data-cat="lessons" aria-selected="true" aria-controls="reviews-list" data-i18n="reviews.tab.lessons">Lessons</button>
+          <button type="button" role="tab" id="tab-events" data-cat="events" aria-selected="false" aria-controls="reviews-list" tabindex="-1" data-i18n="reviews.tab.events">Events &amp; performances</button>
+        </div>
+        <button type="button" class="btn btn-ghost" id="review-open" aria-expanded="false" aria-controls="review-panel" data-i18n="reviews.write">Leave a review</button>
+      </div>
+
+      <div id="review-panel" class="review-panel glass" hidden>
+        <form id="review-form" class="form" novalidate>
+          <h3 class="full" data-i18n="reviews.form.title">Share your experience</h3>
+          <label>
+            <span data-i18n="reviews.form.name">Name</span>
+            <input class="glass-inset" type="text" name="name" required maxlength="60" autocomplete="name">
+          </label>
+          <label>
+            <span data-i18n="reviews.form.category">Your review is about</span>
+            <select class="glass-inset" name="category">
+              <option value="lessons" data-i18n="reviews.tab.lessons">Lessons</option>
+              <option value="events" data-i18n="reviews.tab.events">Events &amp; performances</option>
+            </select>
+          </label>
+          <fieldset class="stars" data-value="5">
+            <legend data-i18n="reviews.form.rating">Rating</legend>
+            <label><input type="radio" name="rating" value="1"><span aria-hidden="true">★</span><span class="sr-only" data-i18n="reviews.r1">1 star</span></label>
+            <label><input type="radio" name="rating" value="2"><span aria-hidden="true">★</span><span class="sr-only" data-i18n="reviews.r2">2 stars</span></label>
+            <label><input type="radio" name="rating" value="3"><span aria-hidden="true">★</span><span class="sr-only" data-i18n="reviews.r3">3 stars</span></label>
+            <label><input type="radio" name="rating" value="4"><span aria-hidden="true">★</span><span class="sr-only" data-i18n="reviews.r4">4 stars</span></label>
+            <label><input type="radio" name="rating" value="5" checked><span aria-hidden="true">★</span><span class="sr-only" data-i18n="reviews.r5">5 stars</span></label>
+          </fieldset>
+          <label>
+            <span data-i18n="reviews.form.detail">Lesson or event (optional)</span>
+            <input class="glass-inset" type="text" name="detail" maxlength="80" data-i18n-placeholder="reviews.form.detailPh" placeholder="e.g. Online lessons, wedding in Dubai Marina">
+          </label>
+          <label class="full">
+            <span data-i18n="reviews.form.text">Your review</span>
+            <textarea class="glass-inset" name="text" rows="4" required maxlength="1000" data-i18n-placeholder="reviews.form.textPh" placeholder="What was it like?"></textarea>
+          </label>
+          <label class="hp" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+          <p class="form-note full" data-i18n="reviews.form.note">Reviews appear on the site once they have been approved.</p>
+          <div class="form-actions full">
+            <button type="submit" class="btn btn-primary" data-i18n="reviews.form.submit">Send review</button>
+            <button type="button" class="btn btn-ghost" id="review-cancel" data-i18n="reviews.form.cancel">Cancel</button>
+          </div>
+          <p class="form-error full" id="review-error" role="alert" hidden></p>
+        </form>
+        <p class="review-thanks" id="review-thanks" role="status" hidden data-i18n="reviews.form.thanks">Thank you! Your review will appear once it has been approved.</p>
+      </div>
+
+      <div id="reviews-list" class="reviews-grid" role="tabpanel" aria-labelledby="tab-lessons"></div>
+      <p class="reviews-empty" id="reviews-empty"></p>
+      <div class="reviews-more"><button type="button" class="btn btn-ghost btn-sm" id="reviews-more" hidden data-i18n="reviews.more">Show more</button></div>
     </section>
 
     <!-- Contact -->

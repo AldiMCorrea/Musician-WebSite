@@ -5,8 +5,11 @@
 // ---- Contact details: replace with the real ones ----
 const CONFIG = {
   whatsapp: "971500000000",               // international format, digits only
-  email: "hello@sabrinavonarx.com",
+  email: "sabrinadbenedicto@gmail.com",
   instagram: "https://instagram.com/",
+  // Google Apps Script web-app URL for reviews (see reviews-backend/README.md).
+  // Empty = reviews are sent by email instead and none are listed.
+  reviewsEndpoint: "",
 };
 
 const I18N = {
@@ -119,6 +122,41 @@ const I18N = {
     "media.gala": "Grand piano on a lit stage",
     "media.celebration": "Guests raising a champagne toast",
     "theme.toggle": "Switch light / dark mode",
+
+    "nav.reviews": "Reviews",
+    "reviews.eyebrow": "Reviews",
+    "reviews.title": "In their words.",
+    "reviews.lead": "From students, and from the couples, families and hosts who trusted Sabrina with their day.",
+    "reviews.tabs": "Review categories",
+    "reviews.tab.lessons": "Lessons",
+    "reviews.tab.events": "Events & performances",
+    "reviews.write": "Leave a review",
+    "reviews.more": "Show more",
+    "reviews.loading": "Loading reviews…",
+    "reviews.empty": "No reviews here yet — be the first to share yours.",
+    "reviews.stars": "{n} out of 5 stars",
+    "reviews.r1": "1 star",
+    "reviews.r2": "2 stars",
+    "reviews.r3": "3 stars",
+    "reviews.r4": "4 stars",
+    "reviews.r5": "5 stars",
+    "reviews.form.title": "Share your experience",
+    "reviews.form.name": "Name",
+    "reviews.form.category": "Your review is about",
+    "reviews.form.rating": "Rating",
+    "reviews.form.detail": "Lesson or event (optional)",
+    "reviews.form.detailPh": "e.g. Online lessons, wedding in Dubai Marina",
+    "reviews.form.text": "Your review",
+    "reviews.form.textPh": "What was it like?",
+    "reviews.form.note": "Reviews appear on the site once they have been approved.",
+    "reviews.form.submit": "Send review",
+    "reviews.form.cancel": "Cancel",
+    "reviews.form.sending": "Sending…",
+    "reviews.form.thanks": "Thank you! Your review will appear once it has been approved.",
+    "reviews.form.error": "Please add your name and a few words about your experience.",
+    "reviews.form.fail": "Something went wrong. Please try again in a moment.",
+    "msg.review": "Review",
+    "msg.rating": "Rating",
   },
 
   es: {
@@ -230,6 +268,41 @@ const I18N = {
     "media.gala": "Piano de cola en un escenario iluminado",
     "media.celebration": "Invitados brindando con champán",
     "theme.toggle": "Cambiar a modo claro / oscuro",
+
+    "nav.reviews": "Reseñas",
+    "reviews.eyebrow": "Reseñas",
+    "reviews.title": "En sus palabras.",
+    "reviews.lead": "De alumnos, y de las parejas, familias y anfitriones que confiaron a Sabrina su día.",
+    "reviews.tabs": "Categorías de reseñas",
+    "reviews.tab.lessons": "Clases",
+    "reviews.tab.events": "Eventos y actuaciones",
+    "reviews.write": "Deja tu reseña",
+    "reviews.more": "Ver más",
+    "reviews.loading": "Cargando reseñas…",
+    "reviews.empty": "Aún no hay reseñas aquí — sé quien comparta la primera.",
+    "reviews.stars": "{n} de 5 estrellas",
+    "reviews.r1": "1 estrella",
+    "reviews.r2": "2 estrellas",
+    "reviews.r3": "3 estrellas",
+    "reviews.r4": "4 estrellas",
+    "reviews.r5": "5 estrellas",
+    "reviews.form.title": "Comparte tu experiencia",
+    "reviews.form.name": "Nombre",
+    "reviews.form.category": "Tu reseña es sobre",
+    "reviews.form.rating": "Valoración",
+    "reviews.form.detail": "Clase o evento (opcional)",
+    "reviews.form.detailPh": "Ej.: clases online, boda en Dubai Marina",
+    "reviews.form.text": "Tu reseña",
+    "reviews.form.textPh": "¿Cómo fue tu experiencia?",
+    "reviews.form.note": "Las reseñas se publican en la web una vez aprobadas.",
+    "reviews.form.submit": "Enviar reseña",
+    "reviews.form.cancel": "Cancelar",
+    "reviews.form.sending": "Enviando…",
+    "reviews.form.thanks": "¡Gracias! Tu reseña aparecerá en cuanto sea aprobada.",
+    "reviews.form.error": "Por favor, escribe tu nombre y unas palabras sobre tu experiencia.",
+    "reviews.form.fail": "Algo salió mal. Por favor, inténtalo de nuevo en un momento.",
+    "msg.review": "Reseña",
+    "msg.rating": "Valoración",
   },
 
   ar: {
@@ -341,6 +414,41 @@ const I18N = {
     "media.gala": "بيانو كبير على مسرح مضاء",
     "media.celebration": "ضيوف يرفعون كؤوس النخب",
     "theme.toggle": "التبديل بين الوضع الفاتح والداكن",
+
+    "nav.reviews": "الآراء",
+    "reviews.eyebrow": "آراء العملاء",
+    "reviews.title": "بكلماتهم.",
+    "reviews.lead": "من الطلاب، ومن الأزواج والعائلات والمضيفين الذين ائتمنوا سابرينا على يومهم.",
+    "reviews.tabs": "فئات الآراء",
+    "reviews.tab.lessons": "الدروس",
+    "reviews.tab.events": "المناسبات والعروض",
+    "reviews.write": "اكتب رأيك",
+    "reviews.more": "عرض المزيد",
+    "reviews.loading": "جارٍ تحميل الآراء…",
+    "reviews.empty": "لا توجد آراء هنا بعد — كن أول من يشارك رأيه.",
+    "reviews.stars": "{n} من 5 نجوم",
+    "reviews.r1": "نجمة واحدة",
+    "reviews.r2": "نجمتان",
+    "reviews.r3": "3 نجوم",
+    "reviews.r4": "4 نجوم",
+    "reviews.r5": "5 نجوم",
+    "reviews.form.title": "شاركنا تجربتك",
+    "reviews.form.name": "الاسم",
+    "reviews.form.category": "رأيك حول",
+    "reviews.form.rating": "التقييم",
+    "reviews.form.detail": "الدرس أو المناسبة (اختياري)",
+    "reviews.form.detailPh": "مثال: دروس عبر الإنترنت، حفل زفاف في دبي مارينا",
+    "reviews.form.text": "رأيك",
+    "reviews.form.textPh": "كيف كانت تجربتك؟",
+    "reviews.form.note": "تُنشر الآراء على الموقع بعد الموافقة عليها.",
+    "reviews.form.submit": "أرسل رأيك",
+    "reviews.form.cancel": "إلغاء",
+    "reviews.form.sending": "جارٍ الإرسال…",
+    "reviews.form.thanks": "شكراً لك! سيظهر رأيك بعد الموافقة عليه.",
+    "reviews.form.error": "يرجى كتابة اسمك وبضع كلمات عن تجربتك.",
+    "reviews.form.fail": "حدث خطأ ما. يرجى المحاولة مرة أخرى بعد قليل.",
+    "msg.review": "رأي",
+    "msg.rating": "التقييم",
   },
 };
 
@@ -468,15 +576,16 @@ const revealer = new IntersectionObserver(
 document.querySelectorAll(".reveal").forEach((el) => revealer.observe(el));
 
 // ---- Specular highlight follows the pointer on glass ----
-if (window.matchMedia("(hover: hover)").matches) {
-  document.querySelectorAll(".glass").forEach((el) => {
-    el.addEventListener("pointermove", (e) => {
-      const r = el.getBoundingClientRect();
-      el.style.setProperty("--mx", `${e.clientX - r.left}px`);
-      el.style.setProperty("--my", `${e.clientY - r.top}px`);
-    });
+const canHover = window.matchMedia("(hover: hover)").matches;
+function addSpecular(el) {
+  if (!canHover) return;
+  el.addEventListener("pointermove", (e) => {
+    const r = el.getBoundingClientRect();
+    el.style.setProperty("--mx", `${e.clientX - r.left}px`);
+    el.style.setProperty("--my", `${e.clientY - r.top}px`);
   });
 }
+document.querySelectorAll(".glass").forEach(addSpecular);
 
 // ---- Section videos: load when near, play only while visible ----
 const lazyVideos = document.querySelectorAll("video.lazy-video");
@@ -550,3 +659,209 @@ document.getElementById("send-email").addEventListener("click", () => {
 
 fields.name.addEventListener("input", () => (errorEl.hidden = true));
 document.getElementById("year").textContent = new Date().getFullYear();
+
+// ---- Reviews (stored in a Google Sheet, published only once approved) ----
+const reviewTabs = [...document.querySelectorAll('#reviews [role="tab"]')];
+const reviewList = document.getElementById("reviews-list");
+const reviewEmpty = document.getElementById("reviews-empty");
+const reviewMore = document.getElementById("reviews-more");
+const reviewPanel = document.getElementById("review-panel");
+const reviewOpen = document.getElementById("review-open");
+const reviewForm = document.getElementById("review-form");
+const reviewError = document.getElementById("review-error");
+const reviewThanks = document.getElementById("review-thanks");
+const reviewStars = reviewForm.querySelector(".stars");
+const reviewSubmit = reviewForm.querySelector('[type="submit"]');
+const REVIEWS_PAGE = 6;
+
+let reviews = null;            // null while loading
+let reviewCat = "lessons";
+let reviewsShown = REVIEWS_PAGE;
+
+function reviewCard(r) {
+  const n = Math.min(5, Math.max(1, Math.round(Number(r.rating)) || 5));
+  const card = document.createElement("figure");
+  card.className = "review glass";
+
+  const stars = document.createElement("div");
+  stars.className = "review-stars";
+  stars.setAttribute("role", "img");
+  stars.setAttribute("aria-label", t("reviews.stars").replace("{n}", n));
+  const on = document.createElement("span");
+  on.textContent = "★".repeat(n);
+  const off = document.createElement("span");
+  off.className = "off";
+  off.textContent = "★".repeat(5 - n);
+  stars.append(on, off);
+
+  const quote = document.createElement("blockquote");
+  const p = document.createElement("p");
+  p.dir = "auto";
+  p.textContent = r.text;
+  quote.append(p);
+
+  const cap = document.createElement("figcaption");
+  const name = document.createElement("strong");
+  name.dir = "auto";
+  name.textContent = r.name;
+  cap.append(name);
+  if (r.detail) {
+    const detail = document.createElement("span");
+    detail.dir = "auto";
+    detail.textContent = r.detail;
+    cap.append(detail);
+  }
+
+  card.append(stars, quote, cap);
+  addSpecular(card);
+  return card;
+}
+
+function renderReviews() {
+  const items = (reviews || []).filter((r) => r.category === reviewCat && r.text && r.name);
+  reviewList.replaceChildren(...items.slice(0, reviewsShown).map(reviewCard));
+  reviewEmpty.hidden = items.length > 0;
+  reviewEmpty.textContent = t(reviews === null ? "reviews.loading" : "reviews.empty");
+  reviewMore.hidden = items.length <= reviewsShown;
+}
+
+function selectReviewTab(tab, focus) {
+  reviewCat = tab.dataset.cat;
+  reviewsShown = REVIEWS_PAGE;
+  reviewTabs.forEach((b) => {
+    const on = b === tab;
+    b.setAttribute("aria-selected", String(on));
+    b.tabIndex = on ? 0 : -1;
+  });
+  reviewList.setAttribute("aria-labelledby", tab.id);
+  if (focus) tab.focus();
+  renderReviews();
+}
+
+reviewTabs.forEach((tab, i) => {
+  tab.addEventListener("click", () => selectReviewTab(tab));
+  tab.addEventListener("keydown", (e) => {
+    const rtl = document.documentElement.dir === "rtl";
+    const step = { ArrowRight: rtl ? -1 : 1, ArrowLeft: rtl ? 1 : -1 }[e.key];
+    if (!step) return;
+    e.preventDefault();
+    selectReviewTab(reviewTabs[(i + step + reviewTabs.length) % reviewTabs.length], true);
+  });
+});
+
+reviewMore.addEventListener("click", () => {
+  reviewsShown += REVIEWS_PAGE;
+  renderReviews();
+});
+
+async function loadReviews() {
+  if (!CONFIG.reviewsEndpoint) {
+    reviews = [];
+  } else {
+    try {
+      const res = await fetch(CONFIG.reviewsEndpoint);
+      const data = await res.json();
+      reviews = Array.isArray(data.reviews) ? data.reviews : [];
+    } catch (_) {
+      reviews = [];
+    }
+  }
+  renderReviews();
+}
+
+renderReviews();
+// Fetch only when the visitor gets close to the section
+const reviewsWatch = new IntersectionObserver(
+  (entries) => {
+    if (entries.some((e) => e.isIntersecting)) {
+      reviewsWatch.disconnect();
+      loadReviews();
+    }
+  },
+  { rootMargin: "600px 0px" }
+);
+reviewsWatch.observe(document.getElementById("reviews"));
+document.addEventListener("langchange", renderReviews);
+
+// Write-a-review panel
+function setReviewPanel(open) {
+  reviewPanel.hidden = !open;
+  reviewOpen.setAttribute("aria-expanded", String(open));
+  if (!open) return;
+  reviewForm.hidden = false;
+  reviewThanks.hidden = true;
+  reviewError.hidden = true;
+  reviewForm.elements.category.value = reviewCat;
+  reviewForm.elements.name.focus({ preventScroll: true });
+  reviewPanel.scrollIntoView({ behavior: calmMotion ? "auto" : "smooth", block: "nearest" });
+}
+reviewOpen.addEventListener("click", () => setReviewPanel(reviewPanel.hidden));
+document.getElementById("review-cancel").addEventListener("click", () => {
+  setReviewPanel(false);
+  reviewOpen.focus();
+});
+
+reviewForm.addEventListener("change", (e) => {
+  if (e.target.name === "rating") reviewStars.dataset.value = e.target.value;
+});
+
+function showReviewError(key) {
+  reviewError.textContent = t(key);
+  reviewError.hidden = false;
+}
+
+reviewForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const f = reviewForm.elements;
+  const data = {
+    name: f.name.value.trim(),
+    category: f.category.value,
+    rating: Number(f.rating.value) || 5,
+    detail: f.detail.value.trim(),
+    text: f.text.value.trim(),
+    lang: current,
+    website: f.website.value,   // honeypot: real visitors leave it empty
+  };
+  if (!data.name || data.text.length < 5) {
+    showReviewError("reviews.form.error");
+    (data.name ? f.text : f.name).focus();
+    return;
+  }
+  reviewError.hidden = true;
+
+  // Not connected to the sheet yet: hand the review over by email
+  if (!CONFIG.reviewsEndpoint) {
+    const cat = f.category.selectedOptions[0].textContent;
+    const body = [
+      `${t("msg.name")}: ${data.name}`,
+      `${t("reviews.form.category")}: ${cat}${data.detail ? ` — ${data.detail}` : ""}`,
+      `${t("msg.rating")}: ${"★".repeat(data.rating)}`,
+      "",
+      data.text,
+    ].join("\n");
+    location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent(`${t("msg.review")} — ${cat}`)}&body=${encodeURIComponent(body)}`;
+    return;
+  }
+
+  reviewSubmit.disabled = true;
+  reviewSubmit.textContent = t("reviews.form.sending");
+  try {
+    // A plain-text body keeps this a "simple" request, so Apps Script accepts it cross-origin
+    const res = await fetch(CONFIG.reviewsEndpoint, { method: "POST", body: JSON.stringify(data) });
+    const out = await res.json();
+    if (!out.ok) throw new Error(out.error || "failed");
+    reviewForm.reset();
+    reviewStars.dataset.value = "5";
+    reviewForm.hidden = true;
+    reviewThanks.hidden = false;
+  } catch (_) {
+    showReviewError("reviews.form.fail");
+  } finally {
+    reviewSubmit.disabled = false;
+    reviewSubmit.textContent = t("reviews.form.submit");
+  }
+});
+
+["name", "text"].forEach((n) =>
+  reviewForm.elements[n].addEventListener("input", () => (reviewError.hidden = true))
+);
